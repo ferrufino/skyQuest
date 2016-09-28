@@ -39,11 +39,11 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     //MARK: Sending Message
     @IBAction func SendLocationSMS(_ sender: AnyObject) {
         let messageVC = MFMessageComposeViewController()
-        let myUrl = NSURL(string: "SQ://\(myId)\\\(locationManager.location!.coordinate.latitude)+\(locationManager.location!.coordinate.longitude)")
-        messageVC.addAttachmentURL(myUrl as! URL, withAlternateFilename: "HEllo")
-        messageVC.body = "SQ://\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)"
+        let myUrl = NSURL(string: "SQ://\(myId)//\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)") as! URL
+        messageVC.addAttachmentURL(myUrl, withAlternateFilename: "HEllo")
+        messageVC.body = "SQ://\(myId)//\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)"
         messageVC.recipients = ["8186938092"]
-        messageVC.messageComposeDelegate = self;
+        messageVC.messageComposeDelegate = self
         
         self.present(messageVC, animated: false, completion: nil)
     }
