@@ -1,106 +1,106 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-    </dependencies>
-    <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-nV-Mwd">
-                                <state key="normal" title="Ranger"/>
-                                <connections>
-                                    <segue destination="fxJ-wz-Rqm" kind="show" identifier="rangerMapView" id="oS8-ls-HTv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YY-QD-sIo">
-                                <state key="normal" title="HeadQuarters"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="A3J-7M-dvh"/>
-                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LON-HY-YNz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6YY-QD-sIo" secondAttribute="bottom" constant="206" id="RSa-32-2ne"/>
-                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerX" secondItem="6YY-QD-sIo" secondAttribute="centerX" id="wMZ-lr-7zh"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--Ranger Map View Controller-->
-        <scene sceneID="Jte-hQ-x1t">
-            <objects>
-                <viewController id="ZD6-KF-Ku9" customClass="rangerMapViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="o1b-En-bVW"/>
-                        <viewControllerLayoutGuide type="bottom" id="GdG-xi-Nmz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YVY-O5-K1b">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NBj-aB-lLb"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="222-zu-J1V">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="IDt-eT-yWv"/>
-                                </constraints>
-                                <state key="normal" title="Send My Location"/>
-                                <connections>
-                                    <action selector="postRangerLocation" destination="ZD6-KF-Ku9" eventType="touchDown" id="e7O-kO-iph"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="222-zu-J1V" secondAttribute="bottom" constant="20" symbolic="YES" id="HTd-CP-M2P"/>
-                            <constraint firstItem="222-zu-J1V" firstAttribute="top" secondItem="NBj-aB-lLb" secondAttribute="bottom" constant="8" symbolic="YES" id="MG5-iE-aeE"/>
-                            <constraint firstAttribute="trailing" secondItem="NBj-aB-lLb" secondAttribute="trailing" id="NW3-OB-smP"/>
-                            <constraint firstItem="NBj-aB-lLb" firstAttribute="top" secondItem="o1b-En-bVW" secondAttribute="bottom" id="R39-iO-Vl7"/>
-                            <constraint firstItem="NBj-aB-lLb" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leading" id="Xet-bt-xBt"/>
-                            <constraint firstItem="NBj-aB-lLb" firstAttribute="centerX" secondItem="222-zu-J1V" secondAttribute="centerX" id="e1M-LV-mrY"/>
-                            <constraint firstItem="222-zu-J1V" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leadingMargin" constant="73" id="etr-O0-qzl"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="vzZ-0O-4cK"/>
-                    <connections>
-                        <outlet property="mapView" destination="NBj-aB-lLb" id="8yK-mr-dyO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5wZ-pS-uoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1869.5999999999999" y="38.23088455772114"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="JZO-xG-XWp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fxJ-wz-Rqm" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UTs-6B-Rox">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ZD6-KF-Ku9" kind="relationship" relationship="rootViewController" id="jxN-KY-Uue"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RMu-cO-76f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="930.39999999999998" y="38.23088455772114"/>
-        </scene>
-    </scenes>
+<dependencies>
+<deployment identifier="iOS"/>
+<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+<capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+<capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+</dependencies>
+<scenes>
+<!--View Controller-->
+<scene sceneID="tne-QT-ifu">
+<objects>
+<viewController id="BYZ-38-t0r" customClass="ViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+<viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-nV-Mwd">
+<state key="normal" title="Ranger"/>
+<connections>
+<segue destination="fxJ-wz-Rqm" kind="show" identifier="rangerMapView" id="oS8-ls-HTv"/>
+</connections>
+</button>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YY-QD-sIo">
+<state key="normal" title="HeadQuarters"/>
+</button>
+</subviews>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+<constraints>
+<constraint firstItem="7g9-nV-Mwd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="A3J-7M-dvh"/>
+<constraint firstItem="7g9-nV-Mwd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LON-HY-YNz"/>
+<constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6YY-QD-sIo" secondAttribute="bottom" constant="206" id="RSa-32-2ne"/>
+<constraint firstItem="7g9-nV-Mwd" firstAttribute="centerX" secondItem="6YY-QD-sIo" secondAttribute="centerX" id="wMZ-lr-7zh"/>
+</constraints>
+</view>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+</objects>
+</scene>
+<!--Ranger Map View Controller-->
+<scene sceneID="Jte-hQ-x1t">
+<objects>
+<viewController id="ZD6-KF-Ku9" customClass="rangerMapViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="o1b-En-bVW"/>
+<viewControllerLayoutGuide type="bottom" id="GdG-xi-Nmz"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="YVY-O5-K1b">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NBj-aB-lLb"/>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="222-zu-J1V">
+<constraints>
+<constraint firstAttribute="height" constant="49" id="IDt-eT-yWv"/>
+</constraints>
+<state key="normal" title="Send My Location"/>
+<connections>
+<action selector="SendLocationSMS:" destination="ZD6-KF-Ku9" eventType="touchUpInside" id="68C-ce-zcQ"/>
+</connections>
+</button>
+</subviews>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<constraints>
+<constraint firstAttribute="bottom" secondItem="222-zu-J1V" secondAttribute="bottom" constant="20" symbolic="YES" id="HTd-CP-M2P"/>
+<constraint firstItem="222-zu-J1V" firstAttribute="top" secondItem="NBj-aB-lLb" secondAttribute="bottom" constant="8" symbolic="YES" id="MG5-iE-aeE"/>
+<constraint firstAttribute="trailing" secondItem="NBj-aB-lLb" secondAttribute="trailing" id="NW3-OB-smP"/>
+<constraint firstItem="NBj-aB-lLb" firstAttribute="top" secondItem="o1b-En-bVW" secondAttribute="bottom" id="R39-iO-Vl7"/>
+<constraint firstItem="NBj-aB-lLb" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leading" id="Xet-bt-xBt"/>
+<constraint firstItem="NBj-aB-lLb" firstAttribute="centerX" secondItem="222-zu-J1V" secondAttribute="centerX" id="e1M-LV-mrY"/>
+<constraint firstItem="222-zu-J1V" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leadingMargin" constant="73" id="etr-O0-qzl"/>
+</constraints>
+</view>
+<navigationItem key="navigationItem" id="vzZ-0O-4cK"/>
+<connections>
+<outlet property="mapView" destination="NBj-aB-lLb" id="8yK-mr-dyO"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="5wZ-pS-uoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="1869.5999999999999" y="38.23088455772114"/>
+</scene>
+<!--Navigation Controller-->
+<scene sceneID="JZO-xG-XWp">
+<objects>
+<navigationController automaticallyAdjustsScrollViewInsets="NO" id="fxJ-wz-Rqm" sceneMemberID="viewController">
+<toolbarItems/>
+<navigationBar key="navigationBar" contentMode="scaleToFill" id="UTs-6B-Rox">
+<rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+<autoresizingMask key="autoresizingMask"/>
+</navigationBar>
+<nil name="viewControllers"/>
+<connections>
+<segue destination="ZD6-KF-Ku9" kind="relationship" relationship="rootViewController" id="jxN-KY-Uue"/>
+</connections>
+</navigationController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="RMu-cO-76f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="930.39999999999998" y="38.23088455772114"/>
+</scene>
+</scenes>
 </document>
