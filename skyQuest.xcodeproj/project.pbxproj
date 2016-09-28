@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		66AEFC451D9C110500272A06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEFC441D9C110500272A06 /* AppDelegate.swift */; };
+		66AEFC471D9C110500272A06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEFC461D9C110500272A06 /* ViewController.swift */; };
+		66AEFC4A1D9C110500272A06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66AEFC481D9C110500272A06 /* Main.storyboard */; };
+		66AEFC4C1D9C110500272A06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66AEFC4B1D9C110500272A06 /* Assets.xcassets */; };
+		66AEFC4F1D9C110500272A06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66AEFC4D1D9C110500272A06 /* LaunchScreen.storyboard */; };
+		66AEFC5A1D9C110500272A06 /* skyQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEFC591D9C110500272A06 /* skyQuestTests.swift */; };
+		66AEFC651D9C110500272A06 /* skyQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEFC641D9C110500272A06 /* skyQuestUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		66AEFC561D9C110500272A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66AEFC391D9C110400272A06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66AEFC401D9C110400272A06;
+			remoteInfo = skyQuest;
+		};
+		66AEFC611D9C110500272A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66AEFC391D9C110400272A06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66AEFC401D9C110400272A06;
+			remoteInfo = skyQuest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		66AEFC411D9C110500272A06 /* skyQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = skyQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66AEFC441D9C110500272A06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66AEFC461D9C110500272A06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		66AEFC491D9C110500272A06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		66AEFC4B1D9C110500272A06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66AEFC4E1D9C110500272A06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		66AEFC501D9C110500272A06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66AEFC551D9C110500272A06 /* skyQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = skyQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66AEFC591D9C110500272A06 /* skyQuestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skyQuestTests.swift; sourceTree = "<group>"; };
+		66AEFC5B1D9C110500272A06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66AEFC601D9C110500272A06 /* skyQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = skyQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66AEFC641D9C110500272A06 /* skyQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skyQuestUITests.swift; sourceTree = "<group>"; };
+		66AEFC661D9C110500272A06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66AEFC3E1D9C110400272A06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66AEFC521D9C110500272A06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66AEFC5D1D9C110500272A06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66AEFC381D9C110400272A06 = {
+			isa = PBXGroup;
+			children = (
+				66AEFC431D9C110500272A06 /* skyQuest */,
+				66AEFC581D9C110500272A06 /* skyQuestTests */,
+				66AEFC631D9C110500272A06 /* skyQuestUITests */,
+				66AEFC421D9C110500272A06 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		66AEFC421D9C110500272A06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66AEFC411D9C110500272A06 /* skyQuest.app */,
+				66AEFC551D9C110500272A06 /* skyQuestTests.xctest */,
+				66AEFC601D9C110500272A06 /* skyQuestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66AEFC431D9C110500272A06 /* skyQuest */ = {
+			isa = PBXGroup;
+			children = (
+				66AEFC441D9C110500272A06 /* AppDelegate.swift */,
+				66AEFC461D9C110500272A06 /* ViewController.swift */,
+				66AEFC481D9C110500272A06 /* Main.storyboard */,
+				66AEFC4B1D9C110500272A06 /* Assets.xcassets */,
+				66AEFC4D1D9C110500272A06 /* LaunchScreen.storyboard */,
+				66AEFC501D9C110500272A06 /* Info.plist */,
+			);
+			path = skyQuest;
+			sourceTree = "<group>";
+		};
+		66AEFC581D9C110500272A06 /* skyQuestTests */ = {
+			isa = PBXGroup;
+			children = (
+				66AEFC591D9C110500272A06 /* skyQuestTests.swift */,
+				66AEFC5B1D9C110500272A06 /* Info.plist */,
+			);
+			path = skyQuestTests;
+			sourceTree = "<group>";
+		};
+		66AEFC631D9C110500272A06 /* skyQuestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				66AEFC641D9C110500272A06 /* skyQuestUITests.swift */,
+				66AEFC661D9C110500272A06 /* Info.plist */,
+			);
+			path = skyQuestUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66AEFC401D9C110400272A06 /* skyQuest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66AEFC691D9C110500272A06 /* Build configuration list for PBXNativeTarget "skyQuest" */;
+			buildPhases = (
+				66AEFC3D1D9C110400272A06 /* Sources */,
+				66AEFC3E1D9C110400272A06 /* Frameworks */,
+				66AEFC3F1D9C110400272A06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = skyQuest;
+			productName = skyQuest;
+			productReference = 66AEFC411D9C110500272A06 /* skyQuest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		66AEFC541D9C110500272A06 /* skyQuestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66AEFC6C1D9C110500272A06 /* Build configuration list for PBXNativeTarget "skyQuestTests" */;
+			buildPhases = (
+				66AEFC511D9C110500272A06 /* Sources */,
+				66AEFC521D9C110500272A06 /* Frameworks */,
+				66AEFC531D9C110500272A06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66AEFC571D9C110500272A06 /* PBXTargetDependency */,
+			);
+			name = skyQuestTests;
+			productName = skyQuestTests;
+			productReference = 66AEFC551D9C110500272A06 /* skyQuestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		66AEFC5F1D9C110500272A06 /* skyQuestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66AEFC6F1D9C110500272A06 /* Build configuration list for PBXNativeTarget "skyQuestUITests" */;
+			buildPhases = (
+				66AEFC5C1D9C110500272A06 /* Sources */,
+				66AEFC5D1D9C110500272A06 /* Frameworks */,
+				66AEFC5E1D9C110500272A06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66AEFC621D9C110500272A06 /* PBXTargetDependency */,
+			);
+			name = skyQuestUITests;
+			productName = skyQuestUITests;
+			productReference = 66AEFC601D9C110500272A06 /* skyQuestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66AEFC391D9C110400272A06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = itesm;
+				TargetAttributes = {
+					66AEFC401D9C110400272A06 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					66AEFC541D9C110500272A06 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 66AEFC401D9C110400272A06;
+					};
+					66AEFC5F1D9C110500272A06 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 66AEFC401D9C110400272A06;
+					};
+				};
+			};
+			buildConfigurationList = 66AEFC3C1D9C110400272A06 /* Build configuration list for PBXProject "skyQuest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 66AEFC381D9C110400272A06;
+			productRefGroup = 66AEFC421D9C110500272A06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66AEFC401D9C110400272A06 /* skyQuest */,
+				66AEFC541D9C110500272A06 /* skyQuestTests */,
+				66AEFC5F1D9C110500272A06 /* skyQuestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66AEFC3F1D9C110400272A06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66AEFC4F1D9C110500272A06 /* LaunchScreen.storyboard in Resources */,
+				66AEFC4C1D9C110500272A06 /* Assets.xcassets in Resources */,
+				66AEFC4A1D9C110500272A06 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66AEFC531D9C110500272A06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66AEFC5E1D9C110500272A06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66AEFC3D1D9C110400272A06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66AEFC471D9C110500272A06 /* ViewController.swift in Sources */,
+				66AEFC451D9C110500272A06 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66AEFC511D9C110500272A06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66AEFC5A1D9C110500272A06 /* skyQuestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66AEFC5C1D9C110500272A06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66AEFC651D9C110500272A06 /* skyQuestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		66AEFC571D9C110500272A06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66AEFC401D9C110400272A06 /* skyQuest */;
+			targetProxy = 66AEFC561D9C110500272A06 /* PBXContainerItemProxy */;
+		};
+		66AEFC621D9C110500272A06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66AEFC401D9C110400272A06 /* skyQuest */;
+			targetProxy = 66AEFC611D9C110500272A06 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		66AEFC481D9C110500272A06 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66AEFC491D9C110500272A06 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		66AEFC4D1D9C110500272A06 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66AEFC4E1D9C110500272A06 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		66AEFC671D9C110500272A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		66AEFC681D9C110500272A06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66AEFC6A1D9C110500272A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = skyQuest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		66AEFC6B1D9C110500272A06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = skyQuest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		66AEFC6D1D9C110500272A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = skyQuestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/skyQuest.app/skyQuest";
+			};
+			name = Debug;
+		};
+		66AEFC6E1D9C110500272A06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = skyQuestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/skyQuest.app/skyQuest";
+			};
+			name = Release;
+		};
+		66AEFC701D9C110500272A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = skyQuestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = skyQuest;
+			};
+			name = Debug;
+		};
+		66AEFC711D9C110500272A06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = skyQuestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = skyQuest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66AEFC3C1D9C110400272A06 /* Build configuration list for PBXProject "skyQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66AEFC671D9C110500272A06 /* Debug */,
+				66AEFC681D9C110500272A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66AEFC691D9C110500272A06 /* Build configuration list for PBXNativeTarget "skyQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66AEFC6A1D9C110500272A06 /* Debug */,
+				66AEFC6B1D9C110500272A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		66AEFC6C1D9C110500272A06 /* Build configuration list for PBXNativeTarget "skyQuestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66AEFC6D1D9C110500272A06 /* Debug */,
+				66AEFC6E1D9C110500272A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		66AEFC6F1D9C110500272A06 /* Build configuration list for PBXNativeTarget "skyQuestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66AEFC701D9C110500272A06 /* Debug */,
+				66AEFC711D9C110500272A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66AEFC391D9C110400272A06 /* Project object */;
+}
