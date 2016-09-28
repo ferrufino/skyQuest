@@ -125,5 +125,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         }
         task.resume()
     }
+    
+    // Get Globe location
 }
 
