@@ -72,7 +72,10 @@
                             <constraint firstItem="222-zu-J1V" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leadingMargin" constant="73" id="etr-O0-qzl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vzZ-0O-4cK"/>
+                    <navigationItem key="navigationItem" id="vzZ-0O-4cK">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="2H2-yl-O1H"/>
+                        <barButtonItem key="rightBarButtonItem" title="Center" id="iwp-jA-tZe"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="NBj-aB-lLb" id="8yK-mr-dyO"/>
                     </connections>
