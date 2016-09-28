@@ -15,6 +15,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
+    var myId = "3"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     //MARK: Sending Message
     @IBAction func SendLocationSMS(_ sender: AnyObject) {
         let messageVC = MFMessageComposeViewController()
-        let myUrl = NSURL(string: "SQ://\(locationManager.location!.coordinate.latitude)+\(locationManager.location!.coordinate.longitude)")
+        let myUrl = NSURL(string: "SQ://\(myId)\\\(locationManager.location!.coordinate.latitude)+\(locationManager.location!.coordinate.longitude)")
         messageVC.addAttachmentURL(myUrl as! URL, withAlternateFilename: "HEllo")
         messageVC.body = "SQ://\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)"
         messageVC.recipients = ["8186938092"]
