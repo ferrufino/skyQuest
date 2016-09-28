@@ -40,6 +40,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.host != nil{
+            print(url.absoluteString)
+            var urlString = url.absoluteString
+            var parameters = urlString.components(separatedBy: "//")
+            print(parameters[0] + parameters[1])
+        }
+        
+        return true
+    }
+    
 
 
 }
