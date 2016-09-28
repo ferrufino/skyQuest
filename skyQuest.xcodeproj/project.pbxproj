@@ -196,7 +196,7 @@
 				TargetAttributes = {
 					66AEFC401D9C110400272A06 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = C5UP27Z5YP;
+						DevelopmentTeam = 6RBBWM63CX;
 						ProvisioningStyle = Automatic;
 					};
 					66AEFC541D9C110500272A06 = {
@@ -417,7 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C5UP27Z5YP;
+				DEVELOPMENT_TEAM = 6RBBWM63CX;
 				INFOPLIST_FILE = skyQuest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuest";
@@ -431,7 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = C5UP27Z5YP;
+				DEVELOPMENT_TEAM = 6RBBWM63CX;
 				INFOPLIST_FILE = skyQuest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuest";
@@ -514,6 +514,7 @@
 				66AEFC6B1D9C110500272A06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66AEFC6C1D9C110500272A06 /* Build configuration list for PBXNativeTarget "skyQuestTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +523,7 @@
 				66AEFC6E1D9C110500272A06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66AEFC6F1D9C110500272A06 /* Build configuration list for PBXNativeTarget "skyQuestUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +532,7 @@
 				66AEFC711D9C110500272A06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -2,7 +2,9 @@
 //  rangerMapViewController.swift
 //  skyQuest
 //
-
+//  Created by Gustavo Ferrufino De La Fuente on 9/28/16.
+//  Copyright © 2016 itesm. All rights reserved.
+//
 
 import Foundation
 import UIKit
@@ -36,8 +38,9 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     //MARK: Sending Message
     @IBAction func SendLocationSMS(_ sender: AnyObject) {
         let messageVC = MFMessageComposeViewController()
-        let myUrl = NSURL(string: "SQ://lat=\(locationManager.location?.coordinate.latitude)+lon=\(locationManager.location?.coordinate.longitude)")
-        messageVC.body = "SQ://lat=\(locationManager.location?.coordinate.latitude)+lon=\(locationManager.location?.coordinate.longitude)"
+        let myUrl = NSURL(string: "SQ://\(locationManager.location!.coordinate.latitude)+\(locationManager.location!.coordinate.longitude)")
+        messageVC.addAttachmentURL(myUrl as! URL, withAlternateFilename: "HEllo")
+        messageVC.body = "SQ://\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)"
         messageVC.recipients = ["8186938092"]
         messageVC.messageComposeDelegate = self;
         

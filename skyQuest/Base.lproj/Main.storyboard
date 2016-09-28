@@ -63,14 +63,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NBj-aB-lLb" firstAttribute="centerX" secondItem="222-zu-J1V" secondAttribute="centerX" id="9IG-9I-RiF"/>
-                            <constraint firstItem="222-zu-J1V" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leadingMargin" constant="13" id="KJH-Ha-IdS"/>
-                            <constraint firstAttribute="trailing" secondItem="NBj-aB-lLb" secondAttribute="trailing" id="Pf0-d0-EMh"/>
-                            <constraint firstItem="NBj-aB-lLb" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leading" id="U4g-0H-wkS"/>
-                            <constraint firstItem="GdG-xi-Nmz" firstAttribute="top" secondItem="222-zu-J1V" secondAttribute="bottom" id="rd8-7g-IxQ"/>
-                            <constraint firstItem="NBj-aB-lLb" firstAttribute="top" secondItem="o1b-En-bVW" secondAttribute="bottom" id="rmY-8W-yGF"/>
-                            <constraint firstItem="GdG-xi-Nmz" firstAttribute="top" secondItem="NBj-aB-lLb" secondAttribute="bottom" constant="78" id="x9G-mv-sUQ"/>
-                            <constraint firstItem="222-zu-J1V" firstAttribute="top" secondItem="o1b-En-bVW" secondAttribute="bottom" constant="528" id="yjI-Vd-msB"/>
+                            <constraint firstAttribute="bottom" secondItem="222-zu-J1V" secondAttribute="bottom" constant="20" symbolic="YES" id="HTd-CP-M2P"/>
+                            <constraint firstItem="222-zu-J1V" firstAttribute="top" secondItem="NBj-aB-lLb" secondAttribute="bottom" constant="8" symbolic="YES" id="MG5-iE-aeE"/>
+                            <constraint firstAttribute="trailing" secondItem="NBj-aB-lLb" secondAttribute="trailing" id="NW3-OB-smP"/>
+                            <constraint firstItem="NBj-aB-lLb" firstAttribute="top" secondItem="o1b-En-bVW" secondAttribute="bottom" id="R39-iO-Vl7"/>
+                            <constraint firstItem="NBj-aB-lLb" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leading" id="Xet-bt-xBt"/>
+                            <constraint firstItem="NBj-aB-lLb" firstAttribute="centerX" secondItem="222-zu-J1V" secondAttribute="centerX" id="e1M-LV-mrY"/>
+                            <constraint firstItem="222-zu-J1V" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leadingMargin" constant="73" id="etr-O0-qzl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vzZ-0O-4cK"/>
@@ -80,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wZ-pS-uoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="37.331334332833585"/>
+            <point key="canvasLocation" x="1869.5999999999999" y="38.23088455772114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JZO-xG-XWp">
