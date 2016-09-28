@@ -55,9 +55,6 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NBj-aB-lLb"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="222-zu-J1V">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="IDt-eT-yWv"/>
-                                </constraints>
                                 <state key="normal" title="Send My Location"/>
                                 <connections>
                                     <action selector="SendLocationSMS:" destination="ZD6-KF-Ku9" eventType="touchUpInside" id="68C-ce-zcQ"/>
