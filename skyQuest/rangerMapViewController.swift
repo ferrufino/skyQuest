@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 import MessageUI
+import Alamofire
 
 class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  MFMessageComposeViewControllerDelegate {
     
@@ -28,6 +29,8 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         checkLocationAuthorizationStatus()
         
         locationManager.startUpdatingLocation() //Continue updating map
+        
+        //getLocations()
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,6 +63,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             centerMapOnLocation(location: locationManager.location!)
             dropPin(location: CLLocationCoordinate2D(latitude: 25.4064023, longitude: -100.1434737), pinTitle: "Ranger")
             centerMidPoint(c1: locationManager.location!.coordinate, c2: CLLocationCoordinate2D(latitude: 25.4064023, longitude: -100.1434737))
+            postRangerLocation()
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
@@ -98,32 +102,31 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     //Post Ranger location
-    func postRangerLocation(){
+    func postRangerLocation() {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let longitude = locationManager.location!.coordinate.longitude
         let latitude = locationManager.location!.coordinate.latitude
-        let time = NSDateComponents().hour
-        let id = 1  //1 = globo A  2 = globo B 3 = Rangers A 4 = Rangers B
+        let id = 2  //1 = globo A  2 = globo B 3 = Rangers A 4 = Rangers B
         
-        var request = URLRequest(url: URL(string: "http://data.sparkfun.com/input/VGxEGjpqrxHaWvDLNLD6?private_key=9Yd0Y62bndflJdGxAxGY&id=\(id)&lat=\(latitude)&lon=\(longitude)&time=\(time)")!)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        print(request)
+        print("lat: \(latitude) long:\(longitude) timestamp:\(date)")
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {       // check for fundamental networking error
-                print("error=\(error)")
-                return
-            }
-            
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {  // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
-            }
-            
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(responseString)")
+        let headers = [
+            "Phant-Private-Key":"9Yd0Y62bndflJdGxAxGY"
+        ]
+        
+        let parameters = [
+            "id" : "\(id)",
+            "lat": "\(latitude)",
+            "lon": "\(longitude)",
+            "timestamp": "\(date)"
+        ]
+        
+        Alamofire.request("http:data.sparkfun.com/input/VGxEGjpqrxHaWvDLNLD6?.json", method: .post, parameters: parameters, headers: headers).responseJSON{ response in
+            print(response.description)
         }
-        task.resume()
     }
+
 }
 
