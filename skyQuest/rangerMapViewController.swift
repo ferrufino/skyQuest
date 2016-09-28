@@ -75,7 +75,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate {
         
         var request = URLRequest(url: URL(string: "http://data.sparkfun.com/input/VGxEGjpqrxHaWvDLNLD6?private_key=9Yd0Y62bndflJdGxAxGY&id=\(id)&lat=\(latitude)&lon=\(longitude)&time=\(time)")!)
         request.httpMethod = "POST"
-        request.setValue(, forHTTPHeaderField: <#T##String#>)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
      //   let postString = ""
        // request.httpBody = postString.data(using: .utf8)
         print(request)
@@ -92,7 +92,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate {
             }
             
             let responseString = String(data: data, encoding: .utf8)
-           // print("responseString = \(responseString)")
+            print("responseString = \(responseString)")
         }
         task.resume()
     }
