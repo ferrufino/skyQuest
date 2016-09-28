@@ -14,6 +14,7 @@
 		66AEFC4F1D9C110500272A06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66AEFC4D1D9C110500272A06 /* LaunchScreen.storyboard */; };
 		66AEFC5A1D9C110500272A06 /* skyQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEFC591D9C110500272A06 /* skyQuestTests.swift */; };
 		66AEFC651D9C110500272A06 /* skyQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEFC641D9C110500272A06 /* skyQuestUITests.swift */; };
+		66AEFC731D9C14EE00272A06 /* rangerMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEFC721D9C14EE00272A06 /* rangerMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		66AEFC601D9C110500272A06 /* skyQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = skyQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AEFC641D9C110500272A06 /* skyQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skyQuestUITests.swift; sourceTree = "<group>"; };
 		66AEFC661D9C110500272A06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66AEFC721D9C14EE00272A06 /* rangerMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rangerMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				66AEFC441D9C110500272A06 /* AppDelegate.swift */,
+				66AEFC721D9C14EE00272A06 /* rangerMapViewController.swift */,
 				66AEFC461D9C110500272A06 /* ViewController.swift */,
 				66AEFC481D9C110500272A06 /* Main.storyboard */,
 				66AEFC4B1D9C110500272A06 /* Assets.xcassets */,
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					66AEFC401D9C110400272A06 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = C5UP27Z5YP;
 						ProvisioningStyle = Automatic;
 					};
 					66AEFC541D9C110500272A06 = {
@@ -259,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AEFC731D9C14EE00272A06 /* rangerMapViewController.swift in Sources */,
 				66AEFC471D9C110500272A06 /* ViewController.swift in Sources */,
 				66AEFC451D9C110500272A06 /* AppDelegate.swift in Sources */,
 			);
@@ -412,11 +417,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C5UP27Z5YP;
 				INFOPLIST_FILE = skyQuest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -424,11 +431,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C5UP27Z5YP;
 				INFOPLIST_FILE = skyQuest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ferrufino-cavazos.skyQuest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
