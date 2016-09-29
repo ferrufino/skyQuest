@@ -102,15 +102,10 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     //Drop pin
-<<<<<<< HEAD
-    func dropPin (location: CLLocationCoordinate2D, pinTitle: String) {
-        let dropPin = MKPointAnnotation()
-=======
+
 
     func dropPin (location: CLLocationCoordinate2D, pinTitle: String, imgTitle: String) {
         let dropPin = CustomAnnotation()
-
->>>>>>> 8e59ce946d0efb16a57797cc5d2c11e8007df277
         dropPin.coordinate = location
         dropPin.title = pinTitle
         dropPin.imageName = imgTitle
@@ -209,7 +204,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     //Create Coordenates with data
                     let latString = (newObject["lat"] as! String).components(separatedBy: " ")
                     let lonString = (newObject["lon"] as! String).components(separatedBy: " ")
-                    let coor = CLLocationCoordinate2D(latitude: Double(latString[0])!, longitude: Double(lonString[0])!)
+                    let coor = CLLocationCoordinate2D(latitude: Double((newObject["lat"] as! String))!, longitude: Double((newObject["lon"] as! String))!)
                     
                     //Get the first coordenate of every id.
                     if (newObject["id"] as! String == "1" && !balA){

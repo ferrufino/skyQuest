@@ -132,9 +132,10 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                     let newObject = object as! NSDictionary //Cast AnyObject to NSDictionary
                     
                     //Create Coordenates with data
-                    let latString = (newObject["lat"] as! String).components(separatedBy: " ")
-                    let lonString = (newObject["lon"] as! String).components(separatedBy: " ")
-                    let coor = CLLocationCoordinate2D(latitude: Double(latString[0])!, longitude: Double(lonString[0])!)
+                    
+                    let latString = (newObject["lat"] as! String).trimmingCharacters(in: .whitespaces)
+                    let lonString = (newObject["lon"] as! String).trimmingCharacters(in: .whitespaces)
+                    let coor = CLLocationCoordinate2D(latitude: Double(latString)!, longitude: Double(lonString)!)
                     
                     //Get the first coordenate of every id.
                     if (newObject["id"] as! String == "1" && !balA){
