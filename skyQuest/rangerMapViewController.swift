@@ -47,9 +47,9 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
      */
     @IBAction func SendLocationSMS(_ sender: AnyObject) {
         let messageVC = MFMessageComposeViewController()
-        let myUrl = NSURL(string: "SQ://-// 3//\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)") as! URL
-        messageVC.addAttachmentURL(myUrl, withAlternateFilename: "HEllo")
-        messageVC.body = "SQ://-// 3//\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)"
+        let myUrl = NSURL(string: "SQ://\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)//\(user.id!)") as! URL
+        messageVC.addAttachmentURL(myUrl, withAlternateFilename: "Hello")
+        messageVC.body = "SQ://\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)//\(user.id!)"
         messageVC.recipients = ["8186938092"]
         messageVC.messageComposeDelegate = self
         
@@ -57,21 +57,37 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        print(result)
+        if result == MessageComposeResult.cancelled{
+            print("Message cancelled")
+        } else if result == MessageComposeResult.sent {
+            print("Message sent")
+        } else {
+            print("Message failed")
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
     //Location Authorization
+    /*
+     Get Authorization
+     Droppin for balloons
+     Center to mid point
+    */
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
             centerMapOnLocation(location: locationManager.location!)
-            dropPin(location: CLLocationCoordinate2D(latitude: 25.4064023, longitude: -100.1434737), pinTitle: "Ranger")
-            centerMidPoint(c1: locationManager.location!.coordinate, c2: CLLocationCoordinate2D(latitude: 25.4064023, longitude: -100.1434737))
+            dropPin(location: CLLocationCoordinate2D(latitude: 25.4064023, longitude: -100.1434737), pinTitle: "RangerA")
+            dropPin(location: CLLocationCoordinate2D(latitude: 25.4065023, longitude: -100.1534737), pinTitle: "RangerB")
+            centertoMidPoint()
             postRangerLocation()
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+    }
+    
+    func updateMap(){
+        
     }
     
     //Update Location of user & change the zoom.
@@ -97,16 +113,6 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         user.pins[pinTitle] = dropPin
     }
     
-    //Center between 2 points
-    func centerMidPoint(c1: CLLocationCoordinate2D, c2: CLLocationCoordinate2D) {
-        let midLatitude = (c1.latitude + c2.latitude)/2
-        let midLongitude = (c1.longitude + c2.longitude)/2
-        
-        let midcoordinate = CLLocationCoordinate2D(latitude: midLatitude, longitude: midLongitude)
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 20000, 20000)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
     //Center between x points
     func centertoMidPoint() {
         var sumLatitude = locationManager.location?.coordinate.latitude
@@ -117,11 +123,11 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             sumLongitude! += pin.coordinate.longitude
         }
         
-        let midLat = sumLatitude!/Double(user.pins.count)
-        let midLon = sumLongitude!/Double(user.pins.count)
+        let midLat = sumLatitude!/Double(user.pins.count + 1)
+        let midLon = sumLongitude!/Double(user.pins.count + 1)
         
         let midcoordinate = CLLocationCoordinate2D(latitude: midLat, longitude: midLon)
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 20000, 20000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 30000, 30000)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     

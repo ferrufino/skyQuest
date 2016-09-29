@@ -23,7 +23,7 @@
                                 <state key="normal" title="Ranger"/>
                                 <connections>
                                     <action selector="rangerMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i87-mu-plP"/>
-                                    <segue destination="fxJ-wz-Rqm" kind="show" identifier="rangerMapView" id="oS8-ls-HTv"/>
+                                    <segue destination="iKu-XK-sFk" kind="show" id="lYi-HF-eIs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YY-QD-sIo">
@@ -49,7 +49,7 @@
         <!--Ranger Map View Controller-->
         <scene sceneID="Jte-hQ-x1t">
             <objects>
-                <viewController id="ZD6-KF-Ku9" customClass="rangerMapViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rangerMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZD6-KF-Ku9" customClass="rangerMapViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o1b-En-bVW"/>
                         <viewControllerLayoutGuide type="bottom" id="GdG-xi-Nmz"/>
@@ -87,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wZ-pS-uoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="-294"/>
+            <point key="canvasLocation" x="2730" y="-287"/>
         </scene>
         <!--Hq Map View Controller-->
         <scene sceneID="Cfe-VQ-3xw">
@@ -136,25 +136,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKT-kr-edW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="475"/>
+            <point key="canvasLocation" x="1748" y="475"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="JZO-xG-XWp">
+        <!--Ranger Identifier View Controller-->
+        <scene sceneID="Ma5-nV-Sdl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fxJ-wz-Rqm" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UTs-6B-Rox">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ZD6-KF-Ku9" kind="relationship" relationship="rootViewController" id="jxN-KY-Uue"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RMu-cO-76f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="QRj-Zk-cqc" customClass="rangerIdentifierViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nfd-mV-0Og"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Ij-jn-cRh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DZ5-ap-Yvk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvd-Tn-ztS">
+                                <frame key="frameInset" minX="128" minY="287" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ranger Balloon A"/>
+                                <connections>
+                                    <action selector="rangerBalloonA:" destination="QRj-Zk-cqc" eventType="touchDown" id="dpa-SB-AIx"/>
+                                    <segue destination="ZD6-KF-Ku9" kind="show" identifier="balloonA" id="z35-st-rV0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUj-Ak-acW">
+                                <frame key="frameInset" minX="129" minY="396" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ranger Balloon B"/>
+                                <connections>
+                                    <action selector="rangerBalloonB:" destination="QRj-Zk-cqc" eventType="touchDown" id="o5T-kO-3lm"/>
+                                    <segue destination="ZD6-KF-Ku9" kind="show" identifier="BalloonB" id="yTg-bC-LrN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JKT-GR-oOB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJi-68-1SK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="-294"/>
+            <point key="canvasLocation" x="1748" y="-287.40629685157421"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="46r-hL-IbU">
@@ -172,7 +193,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNM-gd-oju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="475"/>
+            <point key="canvasLocation" x="842" y="475"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8U6-KM-H8e">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iKu-XK-sFk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dFK-vP-Gz1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QRj-Zk-cqc" kind="relationship" relationship="rootViewController" id="JCS-1K-Ley"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQ4-ao-XeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808.79999999999995" y="-287.40629685157421"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yTg-bC-LrN"/>
+    </inferredMetricsTieBreakers>
 </document>

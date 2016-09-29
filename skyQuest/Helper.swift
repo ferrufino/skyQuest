@@ -19,9 +19,12 @@ class User {
     }
     
     //Function to change annotation of place.
-    func changepinLocation(pinTitle: String, newCoordinate: CLLocationCoordinate2D){
+    func changepinLocation(pinTitle: String, lat: String, lon: String){
+        let newCoordinate = CLLocationCoordinate2D(latitude: Double(lat)! , longitude: Double(lon)!)
         pins[pinTitle]?.coordinate = newCoordinate
     }
 }
 
 let user = User(id: "5")
+
+
