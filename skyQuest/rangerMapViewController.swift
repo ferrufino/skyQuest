@@ -154,11 +154,11 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     func postRangerLocation() {
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.dateFormat = "HH:mm:ssZ'T'dd-MM-yyyy"
         let longitude = locationManager.location!.coordinate.longitude
         let latitude = locationManager.location!.coordinate.latitude
-        let id = 9  //1 = globo A  2 = globo B 3 = Rangers A 4 = Rangers B
-        let time = "99999"
+        let id = user.id!  //1 = globo A  2 = globo B 3 = Rangers A 4 = Rangers B
+        let time = date
         print("lat: \(latitude) long:\(longitude) timestamp:\(date) time:\(time)")
         
         let headers = [

@@ -11,6 +11,7 @@
 		1A60A8D71D9C75F200C2ED33 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A60A8C91D9C755500C2ED33 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A60A8DC1D9CB7E800C2ED33 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60A8DB1D9CB7E800C2ED33 /* Helper.swift */; };
 		1A60A8DF1D9D5B7E00C2ED33 /* hqMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60A8DE1D9D5B7E00C2ED33 /* hqMapViewController.swift */; };
+		1A60A8E81D9D64F500C2ED33 /* rangerIdentifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60A8E71D9D64F500C2ED33 /* rangerIdentifierViewController.swift */; };
 		66AEFC451D9C110500272A06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEFC441D9C110500272A06 /* AppDelegate.swift */; };
 		66AEFC471D9C110500272A06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AEFC461D9C110500272A06 /* ViewController.swift */; };
 		66AEFC4A1D9C110500272A06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66AEFC481D9C110500272A06 /* Main.storyboard */; };
@@ -112,6 +113,7 @@
 		1A60A8BD1D9C755400C2ED33 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		1A60A8DB1D9CB7E800C2ED33 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		1A60A8DE1D9D5B7E00C2ED33 /* hqMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hqMapViewController.swift; sourceTree = "<group>"; };
+		1A60A8E71D9D64F500C2ED33 /* rangerIdentifierViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rangerIdentifierViewController.swift; sourceTree = "<group>"; };
 		66AEFC411D9C110500272A06 /* skyQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = skyQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AEFC441D9C110500272A06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66AEFC461D9C110500272A06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				66AEFC441D9C110500272A06 /* AppDelegate.swift */,
 				1A60A8DB1D9CB7E800C2ED33 /* Helper.swift */,
 				66AEFC721D9C14EE00272A06 /* rangerMapViewController.swift */,
+				1A60A8E71D9D64F500C2ED33 /* rangerIdentifierViewController.swift */,
 				1A60A8DE1D9D5B7E00C2ED33 /* hqMapViewController.swift */,
 				66AEFC461D9C110500272A06 /* ViewController.swift */,
 				66AEFC481D9C110500272A06 /* Main.storyboard */,
@@ -422,6 +425,7 @@
 				66AEFC471D9C110500272A06 /* ViewController.swift in Sources */,
 				66AEFC451D9C110500272A06 /* AppDelegate.swift in Sources */,
 				1A60A8DF1D9D5B7E00C2ED33 /* hqMapViewController.swift in Sources */,
+				1A60A8E81D9D64F500C2ED33 /* rangerIdentifierViewController.swift in Sources */,
 				1A60A8DC1D9CB7E800C2ED33 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
