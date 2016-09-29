@@ -15,11 +15,12 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     @IBOutlet weak var mapView: MKMapView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
         // Do any additional setup after loading the view, typically from a nib.
+        let timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(getData), userInfo: nil, repeats: true)
+        print(timer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,6 +68,7 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         dropPin.title = pinTitle
         mapView.addAnnotation(dropPin)
         user.pins[pinTitle] = dropPin
+        self.centertoMidPoint()
     }
     
     //Center between x points
@@ -94,6 +96,25 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.4
         region = mapView.regionThatFits(region)
         mapView.setRegion(region, animated: true)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "demo")
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "demo")
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+        
+        annotationView!.image = UIImage(named: "balloon-icon")
+        
+        return annotationView
     }
 
     
@@ -156,7 +177,6 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                     }
                 }
             }
-            self.centertoMidPoint()
         }
     }
 }

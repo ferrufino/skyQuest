@@ -100,11 +100,6 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     //Drop pin
     func dropPin (location: CLLocationCoordinate2D, pinTitle: String) {
-        
-        print(location.latitude)
-        print(location.longitude)
-        print(pinTitle)
-        
         let dropPin = MKPointAnnotation()
         dropPin.coordinate = location
         dropPin.title = pinTitle
