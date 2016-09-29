@@ -92,7 +92,7 @@
         <!--Hq Map View Controller-->
         <scene sceneID="Cfe-VQ-3xw">
             <objects>
-                <viewController id="Zmt-Jb-ppB" customClass="hqMapViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="hqMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zmt-Jb-ppB" customClass="hqMapViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AMh-D2-Je8"/>
                         <viewControllerLayoutGuide type="bottom" id="DaX-mO-awd"/>

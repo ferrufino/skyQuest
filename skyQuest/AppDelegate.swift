@@ -8,10 +8,13 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -81,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //Open HQ Map View controller
             let rootViewController = self.window!.rootViewController
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "rangerMapViewController") as! rangerMapViewController
+            let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "hqMapViewController") as! rangerMapViewController
             rootViewController?.navigationController?.popToViewController(setViewController, animated: false)
             
         } else if user.id == "4" {

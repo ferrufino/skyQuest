@@ -158,9 +158,51 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         }
     }
     
-    //Get information for pins
+    //Get Information for pins
     func getData(){
-        
+        let todoEndpoint: String = "http://data.sparkfun.com/output/VGxEGjpqrxHaWvDLNLD6.json"
+        Alamofire.request(todoEndpoint).responseJSON { response in
+            //to get JSON return value
+            if let result = response.result.value {
+                var balA = false, balB = false, raA = false , raB = false
+                let JSON = result as! NSArray
+                
+                //For every object in the response
+                for object in JSON{
+                    let newObject = object as! NSDictionary //Cast AnyObject to NSDictionary
+                    
+                    //Create Coordenates with data
+                    let latString = newObject["lat"] as! String
+                    let lonString = newObject["lon"] as! String
+                    let coor = CLLocationCoordinate2D(latitude: Double(latString)!, longitude: Double(lonString)!)
+                    
+                    //Get the first coordenate of every id.
+                    if (newObject["id"] as! String == "1" && !balA){
+                        balA = true
+                        self.dropPin(location: coor, pinTitle: "BalloonA")
+                        print(object as! NSDictionary)
+                    } else if (newObject["id"] as! String == "2" && !balB){
+                        balB = true
+                        self.dropPin(location: coor, pinTitle: "BalloonB")
+                        print(object as! NSDictionary)
+                    } else if (newObject["id"] as! String == "3" && !raA){
+                        raA = true
+                        self.dropPin(location: coor, pinTitle: "RangerA")
+                        print(object as! NSDictionary)
+                    } else if (newObject["id"] as! String == "4" && !raB){
+                        raB = true
+                        self.dropPin(location: coor, pinTitle: "RangerB")
+                        print(object as! NSDictionary)
+                    }
+                    
+                    //If all pins are drop stop searching
+                    if (balA && balB && raA && raB){
+                        break
+                    }
+                }
+            }
+            self.centertoMidPoint()
+        }
     }
 
 }
