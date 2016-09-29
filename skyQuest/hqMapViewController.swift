@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import MessageUI
+import Alamofire
 
 class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  MFMessageComposeViewControllerDelegate {
     
@@ -17,6 +18,7 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -75,9 +77,23 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     //Get Infromation for pins
     func getData(){
-        
+        let todoEndpoint: String = "http://data.sparkfun.com/output/VGxEGjpqrxHaWvDLNLD6.json"
+        Alamofire.request(todoEndpoint).responseJSON { response in
+            //print(response.request)  // original URL request
+            //print(response.response) // HTTP URL response
+            //print(response.data)     // server data
+           // print(response.result)   // result of response serialization
+            
+         
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+                //let json = (JSON as AnyObject).value(forKey: "id")
+                //print(json)
+            }
+            
+          
+        }
     }
-
 
 }
 
