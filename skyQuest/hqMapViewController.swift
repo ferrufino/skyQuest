@@ -28,11 +28,17 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     @IBAction func sendLocationA(_ sender: AnyObject) {
-        sendLocationSMS(sender: "1", point: user.pins["Balloon A"]!)
+        sendLocationSMS(sender: "1", point: user.pins["BalloonA"]!)
     }
     
     @IBAction func sendLocationB(_ sender: AnyObject) {
-        sendLocationSMS(sender: "2", point: user.pins["Balloon B"]!)
+        sendLocationSMS(sender: "2", point: user.pins["BalloonB"]!)
+    }
+    @IBAction func reloadMap(_ sender: AnyObject) {
+        for pin in user.pins{
+            mapView.removeAnnotation(pin as! MKAnnotation)
+        }
+        getData()
     }
     
     //MARK: Sending Message
@@ -42,14 +48,15 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
      */
     func sendLocationSMS(sender: String, point: MKPointAnnotation) {
         let messageVC = MFMessageComposeViewController()
-        let myUrl = NSURL(string: "SQ://-//\(sender)//\(point.coordinate.latitude)//\(point.coordinate.longitude)") as! URL
+        let myUrl = NSURL(string: "SQ://\(point.coordinate.latitude)//\(point.coordinate.longitude)//\(sender)") as! URL
         messageVC.addAttachmentURL(myUrl, withAlternateFilename: "Hello")
-        messageVC.body = "SQ://-//\(sender)//\(point.coordinate.latitude)//\(point.coordinate.longitude)"
+        messageVC.body = "SQ://\(point.coordinate.latitude)//\(point.coordinate.longitude)//\(sender)"
         messageVC.recipients = ["8186938092"]
         messageVC.messageComposeDelegate = self
         
         self.present(messageVC, animated: false, completion: nil)
     }
+
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         print(result)
@@ -65,38 +72,81 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         user.pins[pinTitle] = dropPin
     }
     
-    //Center between 2 points
-    func centerMidPoint(c1: CLLocationCoordinate2D, c2: CLLocationCoordinate2D) {
-        let midLatitude = (c1.latitude + c2.latitude)/2
-        let midLongitude = (c1.longitude + c2.longitude)/2
+    //Center between x points
+    func centertoMidPoint() {
+        var sumLatitude = CLLocationDegrees()
+        var sumLongitude = CLLocationDegrees()
+        if user.pins.count != 1 {
+            for pin in user.pins.values {
+                sumLatitude += pin.coordinate.latitude
+                sumLongitude += pin.coordinate.longitude
+            }
+            
+            let midLat = sumLatitude/Double(user.pins.count)
+            let midLon = sumLongitude/Double(user.pins.count)
+            
+            let midcoordinate = CLLocationCoordinate2D(latitude: midLat, longitude: midLon)
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 30000, 30000)
+            mapView.setRegion(coordinateRegion, animated: true)
+        } else {
+            for pin in user.pins.values {
+                sumLatitude += pin.coordinate.latitude
+                sumLongitude += pin.coordinate.longitude
+            }
+            let midcoordinate = CLLocationCoordinate2D(latitude: sumLatitude, longitude: sumLongitude)
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 30000, 30000)
+            mapView.setRegion(coordinateRegion, animated: true)
+        }
         
-        let midcoordinate = CLLocationCoordinate2D(latitude: midLatitude, longitude: midLongitude)
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 20000, 20000)
-        mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    //Get Infromation for pins
+    //Get Information for pins
     func getData(){
         let todoEndpoint: String = "http://data.sparkfun.com/output/VGxEGjpqrxHaWvDLNLD6.json"
         Alamofire.request(todoEndpoint).responseJSON { response in
-            //print(response.request)  // original URL request
-            //print(response.response) // HTTP URL response
-            //print(response.data)     // server data
-           // print(response.result)   // result of response serialization
-            
-         
-            if let JSON = response.result.value {
-                print(JSON)
+            //to get JSON return value
+            if let result = response.result.value {
+                var balA = false, balB = false, raA = false , raB = false
+                let JSON = result as! NSArray
                 
-                let data = (JSON as! String).data(using: .utf8)!
-                let json2 = try? JSONSerialization.jsonObject(with: data)
-                print(json2)
+                //For every object in the response
+                for object in JSON{
+                    let newObject = object as! NSDictionary //Cast AnyObject to NSDictionary
+                    
+                    //Create Coordenates with data
+                    let latString = newObject["lat"] as! String
+                    let lonString = newObject["lon"] as! String
+                    let coor = CLLocationCoordinate2D(latitude: Double(latString)!, longitude: Double(lonString)!)
+                    
+                    //Get the first coordenate of every id.
+                    if (newObject["id"] as! String == "1" && !balA){
+                        balA = true
+                        self.dropPin(location: coor, pinTitle: "BalloonA")
+                        print(object as! NSDictionary)
+                    } else if (newObject["id"] as! String == "2" && !balB){
+                        balB = true
+                        self.dropPin(location: coor, pinTitle: "BalloonB")
+                        print(object as! NSDictionary)
+                    } else if (newObject["id"] as! String == "3" && !raA){
+                        raA = true
+                        self.dropPin(location: coor, pinTitle: "RangerA")
+                        print(object as! NSDictionary)
+                    } else if (newObject["id"] as! String == "4" && !raB){
+                        raB = true
+                        self.dropPin(location: coor, pinTitle: "RangerB")
+                        print(object as! NSDictionary)
+                    }
+                    
+                    //If all pins are drop stop searching
+                    if (balA && balB && raA && raB){
+                        break
+                    }
+                }
             }
-           //var filteredList = list.map { $1.filter { ($0 as NSString).containsString("o") } }
-          
+            self.centertoMidPoint()
+
         }
     }
-
 }
 
 
