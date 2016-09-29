@@ -86,11 +86,13 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             
          
             if let JSON = response.result.value {
-                print("JSON: \(JSON)")
-                //let json = (JSON as AnyObject).value(forKey: "id")
-                //print(json)
+                print(JSON)
+                
+                let data = (JSON as! String).data(using: .utf8)!
+                let json2 = try? JSONSerialization.jsonObject(with: data)
+                print(json2)
             }
-            
+           //var filteredList = list.map { $1.filter { ($0 as NSString).containsString("o") } }
           
         }
     }

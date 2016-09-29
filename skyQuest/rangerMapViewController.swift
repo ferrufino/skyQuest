@@ -138,25 +138,24 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let longitude = locationManager.location!.coordinate.longitude
         let latitude = locationManager.location!.coordinate.latitude
-        let id = 2  //1 = globo A  2 = globo B 3 = Rangers A 4 = Rangers B
-        
-        print("lat: \(latitude) long:\(longitude) timestamp:\(date)")
+        let id = 9  //1 = globo A  2 = globo B 3 = Rangers A 4 = Rangers B
+        let time = "99999"
+        print("lat: \(latitude) long:\(longitude) timestamp:\(date) time:\(time)")
         
         let headers = [
             "Phant-Private-Key":"9Yd0Y62bndflJdGxAxGY"
         ]
         
-        let parameters = [
+        let parameters: Parameters = [
             "id" : "\(id)",
             "lat": "\(latitude)",
             "lon": "\(longitude)",
-            "timestamp": "\(date)"
+            "time": "\(time)"
         ]
         
         Alamofire.request("http:data.sparkfun.com/input/VGxEGjpqrxHaWvDLNLD6?.json", method: .post, parameters: parameters, headers: headers).responseJSON{ response in
             print(response.description)
-        }
-    }
+        }    }
     
     //Get information for pins
     func getData(){
