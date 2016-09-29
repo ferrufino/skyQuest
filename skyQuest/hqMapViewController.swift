@@ -86,7 +86,7 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             let midLon = sumLongitude/Double(user.pins.count)
             
             let midcoordinate = CLLocationCoordinate2D(latitude: midLat, longitude: midLon)
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 30000, 30000)
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 60000, 60000)
             mapView.setRegion(coordinateRegion, animated: true)
         } else {
             for pin in user.pins.values {
@@ -94,7 +94,7 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 sumLongitude += pin.coordinate.longitude
             }
             let midcoordinate = CLLocationCoordinate2D(latitude: sumLatitude, longitude: sumLongitude)
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 30000, 30000)
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 60000, 60000)
             mapView.setRegion(coordinateRegion, animated: true)
         }
         
@@ -114,9 +114,9 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                     let newObject = object as! NSDictionary //Cast AnyObject to NSDictionary
                     
                     //Create Coordenates with data
-                    let latString = newObject["lat"] as! String
-                    let lonString = newObject["lon"] as! String
-                    let coor = CLLocationCoordinate2D(latitude: Double(latString)!, longitude: Double(lonString)!)
+                    let latString = (newObject["lat"] as! String).components(separatedBy: " ")
+                    let lonString = (newObject["lon"] as! String).components(separatedBy: " ")
+                    let coor = CLLocationCoordinate2D(latitude: Double(latString[0])!, longitude: Double(lonString[0])!)
                     
                     //Get the first coordenate of every id.
                     if (newObject["id"] as! String == "1" && !balA){

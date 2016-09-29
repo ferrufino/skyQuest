@@ -77,9 +77,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
             centerMapOnLocation(location: locationManager.location!)
-            dropPin(location: CLLocationCoordinate2D(latitude: 25.4064023, longitude: -100.1434737), pinTitle: "RangerA")
-            dropPin(location: CLLocationCoordinate2D(latitude: 25.4065023, longitude: -100.1534737), pinTitle: "RangerB")
-            centertoMidPoint()
+            getData()
             postRangerLocation()
         } else {
             locationManager.requestWhenInUseAuthorization()
@@ -109,6 +107,8 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         let dropPin = MKPointAnnotation()
         dropPin.coordinate = location
         dropPin.title = pinTitle
+        let anotation = dropPin as! MKAnnotation
+        
         mapView.addAnnotation(dropPin)
         user.pins[pinTitle] = dropPin
     }
@@ -127,8 +127,27 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         let midLon = sumLongitude!/Double(user.pins.count + 1)
         
         let midcoordinate = CLLocationCoordinate2D(latitude: midLat, longitude: midLon)
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 30000, 30000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 60000, 60000)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "demo")
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "demo")
+            annotationView!.canShowCallout = true
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        annotationView!.image = UIImage(named: "image")
+        
+        return annotationView
     }
     
     //Post Ranger location
@@ -153,9 +172,10 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             "time": "\(time)"
         ]
         
-        Alamofire.request("http:data.sparkfun.com/input/VGxEGjpqrxHaWvDLNLD6?.json", method: .post, parameters: parameters, headers: headers).responseJSON{ response in
+        Alamofire.request("http:data.sparkfun.com/input/VGxEGjpqrxHaWvDLNLD6.json", method: .post, parameters: parameters, headers: headers).responseJSON{ response in
             print(response.description)
-        }    }
+        }
+    }
     
     //Get Information for pins
     func getData(){
@@ -171,9 +191,9 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     let newObject = object as! NSDictionary //Cast AnyObject to NSDictionary
                     
                     //Create Coordenates with data
-                    let latString = newObject["lat"] as! String
-                    let lonString = newObject["lon"] as! String
-                    let coor = CLLocationCoordinate2D(latitude: Double(latString)!, longitude: Double(lonString)!)
+                    let latString = (newObject["lat"] as! String).components(separatedBy: " ")
+                    let lonString = (newObject["lon"] as! String).components(separatedBy: " ")
+                    let coor = CLLocationCoordinate2D(latitude: Double(latString[0])!, longitude: Double(lonString[0])!)
                     
                     //Get the first coordenate of every id.
                     if (newObject["id"] as! String == "1" && !balA){
