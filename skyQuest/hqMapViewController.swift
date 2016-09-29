@@ -6,6 +6,7 @@
 //  Copyright © 2016 itesm. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import MapKit
 import MessageUI
@@ -18,6 +19,7 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
+        mapView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         let timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(getData), userInfo: nil, repeats: true)
         print(timer)
@@ -37,6 +39,7 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     @IBAction func reloadMap(_ sender: AnyObject) {
         getData()
+        centertoMidPoint()
     }
     
     //MARK: Sending Message
@@ -63,12 +66,12 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     //Drop pin
     func dropPin (location: CLLocationCoordinate2D, pinTitle: String) {
-        let dropPin = MKPointAnnotation()
+        let dropPin = CustomAnnotation()
         dropPin.coordinate = location
         dropPin.title = pinTitle
         mapView.addAnnotation(dropPin)
         user.pins[pinTitle] = dropPin
-        self.centertoMidPoint()
+        centertoMidPoint()
     }
     
     //Center between x points
@@ -112,7 +115,15 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             annotationView!.annotation = annotation
         }
         
-        annotationView!.image = UIImage(named: "balloon-icon")
+        if annotation.title! == "BalloonA" {
+            annotationView!.image = UIImage(named: "balloon-a")
+        } else if annotation.title! == "BalloonB" {
+            annotationView!.image = UIImage(named: "balloon-b")
+        } else if annotation.title! == "RangerA" {
+            annotationView!.image = UIImage(named: "worker-female")
+        } else {
+            annotationView!.image = UIImage(named: "worker-male")
+        }
         
         return annotationView
     }

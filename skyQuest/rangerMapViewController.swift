@@ -102,14 +102,11 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     //Drop pin
-
-
     func dropPin (location: CLLocationCoordinate2D, pinTitle: String, imgTitle: String) {
         let dropPin = CustomAnnotation()
         dropPin.coordinate = location
         dropPin.title = pinTitle
         dropPin.imageName = imgTitle
-        let anotation = dropPin as! CustomAnnotation
         mapView.addAnnotation(dropPin)
         user.pins[pinTitle] = dropPin
     }
@@ -155,7 +152,12 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             annotationView!.annotation = annotation
         }
         
-        annotationView!.image = UIImage(named: "balloon-icon")
+        if annotation.title! == "BalloonA" {
+            annotationView!.image = UIImage(named: "balloon-a")
+        } else {
+            annotationView!.image = UIImage(named: "balloon-b")
+        }
+        
         
         return annotationView
     }
@@ -202,16 +204,16 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     let newObject = object as! NSDictionary //Cast AnyObject to NSDictionary
                     
                     //Create Coordenates with data
-                    let latString = (newObject["lat"] as! String).components(separatedBy: " ")
-                    let lonString = (newObject["lon"] as! String).components(separatedBy: " ")
-                    let coor = CLLocationCoordinate2D(latitude: Double((newObject["lat"] as! String))!, longitude: Double((newObject["lon"] as! String))!)
+                    let latString = (newObject["lat"] as! String).trimmingCharacters(in: .whitespaces)
+                    let lonString = (newObject["lon"] as! String).trimmingCharacters(in: .whitespaces)
+                    let coor = CLLocationCoordinate2D(latitude: Double(latString)!, longitude: Double(lonString)!)
                     
                     //Get the first coordenate of every id.
                     if (newObject["id"] as! String == "1" && !balA){
                         balA = true
 
                         if user.pins["BalloonA"] == nil {
-                            self.dropPin(location: coor, pinTitle: "BalloonA", imgTitle: "balloon-icon")
+                            self.dropPin(location: coor, pinTitle: "BalloonA", imgTitle: "balloon-a")
                         } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonA"]?.coordinate.longitude != coor.longitude{
                             user.changepinLocation(pinTitle: "BalloonA", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
                         }
@@ -219,7 +221,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     } else if (newObject["id"] as! String == "2" && !balB){
                         balB = true
                         if user.pins["BalloonB"] == nil {
-                            self.dropPin(location: coor, pinTitle: "BalloonB", imgTitle: "balloon-icon")
+                            self.dropPin(location: coor, pinTitle: "BalloonB", imgTitle: "balloon-b")
                         } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonB"]?.coordinate.longitude != coor.longitude{
                             user.changepinLocation(pinTitle: "BalloonB", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
                         }
