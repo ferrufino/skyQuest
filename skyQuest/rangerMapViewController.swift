@@ -164,7 +164,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         Alamofire.request(todoEndpoint).responseJSON { response in
             //to get JSON return value
             if let result = response.result.value {
-                var balA = false, balB = false, raA = false , raB = false
+                var balA = false, balB = false
                 let JSON = result as! NSArray
                 
                 //For every object in the response
@@ -185,18 +185,10 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                         balB = true
                         self.dropPin(location: coor, pinTitle: "BalloonB")
                         print(object as! NSDictionary)
-                    } else if (newObject["id"] as! String == "3" && !raA){
-                        raA = true
-                        self.dropPin(location: coor, pinTitle: "RangerA")
-                        print(object as! NSDictionary)
-                    } else if (newObject["id"] as! String == "4" && !raB){
-                        raB = true
-                        self.dropPin(location: coor, pinTitle: "RangerB")
-                        print(object as! NSDictionary)
                     }
                     
                     //If all pins are drop stop searching
-                    if (balA && balB && raA && raB){
+                    if (balA && balB){
                         break
                     }
                 }

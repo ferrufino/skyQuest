@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //Open HQ Map View controller
             let rootViewController = self.window!.rootViewController
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "hqMapViewController") as! rangerMapViewController
+            let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "hqMapViewController") as! hqMapViewController
             rootViewController?.navigationController?.popToViewController(setViewController, animated: false)
             
         } else if user.id == "4" {

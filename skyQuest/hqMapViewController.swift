@@ -28,11 +28,17 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     @IBAction func sendLocationA(_ sender: AnyObject) {
-        sendLocationSMS(sender: "1", point: user.pins["Balloon A"]!)
+        sendLocationSMS(sender: "1", point: user.pins["BalloonA"]!)
     }
     
     @IBAction func sendLocationB(_ sender: AnyObject) {
-        sendLocationSMS(sender: "2", point: user.pins["Balloon B"]!)
+        sendLocationSMS(sender: "2", point: user.pins["BalloonB"]!)
+    }
+    @IBAction func reloadMap(_ sender: AnyObject) {
+        for pin in user.pins{
+            mapView.removeAnnotation(pin as! MKAnnotation)
+        }
+        getData()
     }
     
     //MARK: Sending Message
@@ -76,8 +82,8 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 sumLongitude += pin.coordinate.longitude
             }
             
-            let midLat = sumLatitude/Double(user.pins.count + 1)
-            let midLon = sumLongitude/Double(user.pins.count + 1)
+            let midLat = sumLatitude/Double(user.pins.count)
+            let midLon = sumLongitude/Double(user.pins.count)
             
             let midcoordinate = CLLocationCoordinate2D(latitude: midLat, longitude: midLon)
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 30000, 30000)

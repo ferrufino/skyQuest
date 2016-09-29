@@ -129,7 +129,13 @@
                             <constraint firstItem="Wl2-ZA-aqJ" firstAttribute="top" secondItem="f0E-LH-gUW" secondAttribute="bottom" constant="14" id="yPI-XX-0ML"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="R27-d6-Q7U"/>
+                    <navigationItem key="navigationItem" id="R27-d6-Q7U">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="MYL-om-6jK">
+                            <connections>
+                                <action selector="reloadMap:" destination="Zmt-Jb-ppB" id="ndi-8a-7kX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="f0E-LH-gUW" id="azF-0g-NDH"/>
                     </connections>
@@ -150,18 +156,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvd-Tn-ztS">
-                                <frame key="frameInset" minX="128" minY="287" width="118" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvd-Tn-ztS">
                                 <state key="normal" title="Ranger Balloon A"/>
                                 <connections>
                                     <action selector="rangerBalloonA:" destination="QRj-Zk-cqc" eventType="touchDown" id="dpa-SB-AIx"/>
                                     <segue destination="ZD6-KF-Ku9" kind="show" identifier="balloonA" id="z35-st-rV0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUj-Ak-acW">
-                                <frame key="frameInset" minX="129" minY="396" width="117" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUj-Ak-acW">
                                 <state key="normal" title="Ranger Balloon B"/>
                                 <connections>
                                     <action selector="rangerBalloonB:" destination="QRj-Zk-cqc" eventType="touchDown" id="o5T-kO-3lm"/>
@@ -170,6 +172,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="trailing" secondItem="WUj-Ak-acW" secondAttribute="trailing" id="NAb-If-Zp2"/>
+                            <constraint firstItem="WUj-Ak-acW" firstAttribute="top" secondItem="yvd-Tn-ztS" secondAttribute="bottom" constant="79" id="twr-Ep-S1v"/>
+                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="top" secondItem="nfd-mV-0Og" secondAttribute="bottom" constant="200" id="uwh-ht-9S9"/>
+                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="centerX" secondItem="DZ5-ap-Yvk" secondAttribute="centerX" id="yXI-4p-isV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JKT-GR-oOB"/>
                 </viewController>
