@@ -47,37 +47,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let urlString = url.absoluteString
-        var param = urlString.components(separatedBy: "//")
         
-        if user.id == "3" || user.id == "4" { //If User that opened link is ranger
-            if param[1] == " 1" { //Balloon A
+        let urlString = url.absoluteString
+        var param = urlString.characters.split(separator: "/").map(String.init)
+        if user.id == "3"{ //If User that opened link is ranger
+            if param[3] == "1" { //Balloon A
                 //Change Balloon A Location
-                //Open View controller 
+                user.changepinLocation(pinTitle: "BalloonA", lat: param[1], lon: param[2])
+                
+                //Open View controller
                 let rootViewController = self.window!.rootViewController
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "rangerMapViewController") as! rangerMapViewController
                 rootViewController?.navigationController?.popToViewController(setViewController, animated: false)
                 
-            } else if param[1] == "2"{ //Balloon B
-                //Change Balloon A Location
             }
         } else if user.id == "0" { //If User that opened link is in HQ
-            if param[1] == "1" { //Balloon A
+            if param[3] == "1" { //Balloon A
                 //Change Balloon A Location
-            } else if param[1] == "2"{ //Balloon B
-                //Change Balloon A Location
-            } else if param[1] == "3"{ //Ranger A
+                user.changepinLocation(pinTitle: "BalloonA", lat: param[1], lon: param[2])
+            } else if param[3] == "2"{ //Balloon B
+                ///Change Balloon B Location
+                user.changepinLocation(pinTitle: "BalloonB", lat: param[1], lon: param[2])
+            } else if param[3] == "3"{ //Ranger A
                 //Change Ranger A
+                user.changepinLocation(pinTitle: "RangerA", lat: param[1], lon: param[2])
             } else {  //Ranger B
                 //Change Ranger B
+                user.changepinLocation(pinTitle: "RangerB", lat: param[1], lon: param[2])
+
+            }
+            
+            //Open HQ Map View controller
+            let rootViewController = self.window!.rootViewController
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "rangerMapViewController") as! rangerMapViewController
+            rootViewController?.navigationController?.popToViewController(setViewController, animated: false)
+            
+        } else if user.id == "4" {
+            if param[3] == "2" { //Balloon B
+                ///Change Balloon B Location
+                user.changepinLocation(pinTitle: "BalloonB", lat: param[1], lon: param[2])
+                
+                //Open View controller
+                let rootViewController = self.window!.rootViewController
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "rangerMapViewController") as! rangerMapViewController
+                rootViewController?.navigationController?.popToViewController(setViewController, animated: false)
+                
+                
             }
         }
         
         return true
     }
-    
-
 
 }
 
