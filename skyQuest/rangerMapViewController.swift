@@ -16,7 +16,8 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
-    var myId = "3"
+    var myId = " 1"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +41,15 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     
     //MARK: Sending Message
+    /*
+     If sender is a Ranger, you use 3 or 4 as id. -> Reciver has to be HQ.
+     If sender is HQ, you use 1 or 2 depending on the balloon.
+     */
     @IBAction func SendLocationSMS(_ sender: AnyObject) {
         let messageVC = MFMessageComposeViewController()
-        let myUrl = NSURL(string: "SQ://\(myId)//\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)") as! URL
+        let myUrl = NSURL(string: "SQ://-// 3//\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)") as! URL
         messageVC.addAttachmentURL(myUrl, withAlternateFilename: "HEllo")
-        messageVC.body = "SQ://\(myId)//\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)"
+        messageVC.body = "SQ://-// 3//\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)"
         messageVC.recipients = ["8186938092"]
         messageVC.messageComposeDelegate = self
         
@@ -89,12 +94,30 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         dropPin.coordinate = location
         dropPin.title = pinTitle
         mapView.addAnnotation(dropPin)
+        user.pins[pinTitle] = dropPin
     }
     
     //Center between 2 points
     func centerMidPoint(c1: CLLocationCoordinate2D, c2: CLLocationCoordinate2D) {
         let midLatitude = (c1.latitude + c2.latitude)/2
         let midLongitude = (c1.longitude + c2.longitude)/2
+        
+        let midcoordinate = CLLocationCoordinate2D(latitude: midLatitude, longitude: midLongitude)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 20000, 20000)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    //Center between x points
+    func centertoMidPoint() {
+        var sumLatitude: CLLocationDegrees?
+        var sumLongitude: CLLocationDegrees?
+        
+        for pin in user.pins.values {
+            sumLatitude! += pin.coordinate.latitude
+            sumLongitude! += pin.coordinate.longitude
+        }
+        
+        let midLat = sumLatitude/user.pins.count
         
         let midcoordinate = CLLocationCoordinate2D(latitude: midLatitude, longitude: midLongitude)
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 20000, 20000)
@@ -126,6 +149,11 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         Alamofire.request("http:data.sparkfun.com/input/VGxEGjpqrxHaWvDLNLD6?.json", method: .post, parameters: parameters, headers: headers).responseJSON{ response in
             print(response.description)
         }
+    }
+    
+    //Get information for pins
+    func getData(){
+        
     }
 
 }

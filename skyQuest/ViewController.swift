@@ -20,6 +20,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func rangerMode(_ sender: AnyObject) {
+        user.id = "3"
+    }
 
+    @IBAction func HQMode(_ sender: AnyObject) {
+        user.id = "0"
+    }
 }
 
