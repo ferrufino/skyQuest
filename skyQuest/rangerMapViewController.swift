@@ -39,6 +39,9 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func centerMap(_ sender: AnyObject) {
+        centerMapOnLocation(location: locationManager.location!)
+    }
     
     //MARK: Sending Message
     /*
@@ -99,10 +102,19 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     //Drop pin
+<<<<<<< HEAD
     func dropPin (location: CLLocationCoordinate2D, pinTitle: String) {
         let dropPin = MKPointAnnotation()
+=======
+
+    func dropPin (location: CLLocationCoordinate2D, pinTitle: String, imgTitle: String) {
+        let dropPin = CustomAnnotation()
+
+>>>>>>> 8e59ce946d0efb16a57797cc5d2c11e8007df277
         dropPin.coordinate = location
         dropPin.title = pinTitle
+        dropPin.imageName = imgTitle
+        let anotation = dropPin as! CustomAnnotation
         mapView.addAnnotation(dropPin)
         user.pins[pinTitle] = dropPin
     }
@@ -202,8 +214,9 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     //Get the first coordenate of every id.
                     if (newObject["id"] as! String == "1" && !balA){
                         balA = true
+
                         if user.pins["BalloonA"] == nil {
-                            self.dropPin(location: coor, pinTitle: "BalloonA")
+                            self.dropPin(location: coor, pinTitle: "BalloonA", imgTitle: "balloon-icon")
                         } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonA"]?.coordinate.longitude != coor.longitude{
                             user.changepinLocation(pinTitle: "BalloonA", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
                         }
@@ -211,7 +224,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     } else if (newObject["id"] as! String == "2" && !balB){
                         balB = true
                         if user.pins["BalloonB"] == nil {
-                            self.dropPin(location: coor, pinTitle: "BalloonB")
+                            self.dropPin(location: coor, pinTitle: "BalloonB", imgTitle: "balloon-icon")
                         } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonB"]?.coordinate.longitude != coor.longitude{
                             user.changepinLocation(pinTitle: "BalloonB", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
                         }
