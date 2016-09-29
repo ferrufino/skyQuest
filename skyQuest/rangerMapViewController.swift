@@ -15,9 +15,9 @@ import Alamofire
 class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  MFMessageComposeViewControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    
     var locationManager = CLLocationManager()
     var myId = " 1"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +100,11 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     //Drop pin
     func dropPin (location: CLLocationCoordinate2D, pinTitle: String) {
+        
+        print(location.latitude)
+        print(location.longitude)
+        print(pinTitle)
+        
         let dropPin = MKPointAnnotation()
         dropPin.coordinate = location
         dropPin.title = pinTitle
@@ -140,15 +145,15 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         }
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "demo")
+        
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "demo")
             annotationView!.canShowCallout = true
-        }
-        else {
+        } else {
             annotationView!.annotation = annotation
         }
         
-        annotationView!.image = UIImage(named: "image")
+        annotationView!.image = UIImage(named: "balloon-icon")
         
         return annotationView
     }
@@ -181,7 +186,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
 
-    
+    //Get Information for pins
     func getData(){
         let todoEndpoint: String = "http://data.sparkfun.com/output/VGxEGjpqrxHaWvDLNLD6.json"
         Alamofire.request(todoEndpoint).responseJSON { response in
@@ -225,9 +230,62 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                 }
             }
             self.centertoMidPoint()
-            
         }
     }
 
+    /*
+    func getData(){
+        let todoEndpoint: String = "http://data.sparkfun.com/output/VGxEGjpqrxHaWvDLNLD6.json"
+        Alamofire.request(todoEndpoint).responseJSON { response in
+            //to get JSON return value
+            if let result = response.result.value {
+                var balA = false, balB = false, raA = false , raB = false
+                let JSON = result as! NSArray
+                
+                //For every object in the response
+                for object in JSON {
+                    let newObject = object as! NSDictionary //Cast AnyObject to NSDictionary
+                    
+                    //Create Coordenates with data
+                    let latString = (newObject["lat"] as! String).components(separatedBy: " ")
+                    let lonString = (newObject["lon"] as! String).components(separatedBy: " ")
+                    let coor = CLLocationCoordinate2D(latitude: Double(latString[0])!, longitude: Double(lonString[0])!)
+                    
+                    //Get the first coordenate of every id.
+                    if (newObject["id"] as! String == "1" && !balA){
+                        balA = true
+                        if user.pins["BalloonA"] == nil {
+                            
+                            self.dropPin(location: coor, pinTitle: "BalloonA")
+                            
+                        } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonA"]?.coordinate.longitude != coor.longitude{
+                            
+                            user.changepinLocation(pinTitle: "BalloonA", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
+                            
+                        }
+                        print(object as! NSDictionary)
+                    } else if (newObject["id"] as! String == "2" && !balB){
+                        balB = true
+                        if user.pins["BalloonB"] == nil {
+                            
+                            self.dropPin(location: coor, pinTitle: "BalloonB")
+                            
+                        } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonB"]?.coordinate.longitude != coor.longitude{
+                            
+                            user.changepinLocation(pinTitle: "BalloonB", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
+                        }
+                        print(object as! NSDictionary)
+                    }
+                    
+                    //If all pins are drop stop searching
+                    if (balA && balB){
+                        break
+                    }
+                }
+            }
+            self.centertoMidPoint()
+            
+        }
+    }
+*/
 }
-
