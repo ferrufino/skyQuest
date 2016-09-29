@@ -18,7 +18,6 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     var locationManager = CLLocationManager()
     var myId = " 1"
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
@@ -39,6 +38,9 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func centerMap(_ sender: AnyObject) {
+        centerMapOnLocation(location: locationManager.location!)
+    }
     
     //MARK: Sending Message
     /*
@@ -103,10 +105,11 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     //Drop pin
-    func dropPin (location: CLLocationCoordinate2D, pinTitle: String) {
-        let dropPin = MKPointAnnotation()
+    func dropPin (location: CLLocationCoordinate2D, pinTitle: String, imgTitle: String) {
+        let dropPin = CustomAnnotation()
         dropPin.coordinate = location
         dropPin.title = pinTitle
+        dropPin.imageName = imgTitle
         let anotation = dropPin as! MKAnnotation
         
         mapView.addAnnotation(dropPin)
@@ -198,11 +201,11 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     //Get the first coordenate of every id.
                     if (newObject["id"] as! String == "1" && !balA){
                         balA = true
-                        self.dropPin(location: coor, pinTitle: "BalloonA")
+                        self.dropPin(location: coor, pinTitle: "BalloonA", imgTitle: "balloon-icon")
                         print(object as! NSDictionary)
                     } else if (newObject["id"] as! String == "2" && !balB){
                         balB = true
-                        self.dropPin(location: coor, pinTitle: "BalloonB")
+                        self.dropPin(location: coor, pinTitle: "BalloonB", imgTitle: "balloon-icon")
                         print(object as! NSDictionary)
                     }
                     

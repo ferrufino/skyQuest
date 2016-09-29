@@ -79,7 +79,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="vzZ-0O-4cK">
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="2H2-yl-O1H"/>
-                        <barButtonItem key="rightBarButtonItem" title="Center" id="iwp-jA-tZe"/>
+                        <barButtonItem key="rightBarButtonItem" title="Center" id="iwp-jA-tZe">
+                            <connections>
+                                <action selector="centerMap:" destination="ZD6-KF-Ku9" id="raM-QB-jbd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="NBj-aB-lLb" id="8yK-mr-dyO"/>
