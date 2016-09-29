@@ -157,7 +157,6 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 }
             }
             self.centertoMidPoint()
-
         }
     }
 }
