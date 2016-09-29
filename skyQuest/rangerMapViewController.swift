@@ -84,10 +84,6 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         }
     }
     
-    func updateMap(){
-        
-    }
-    
     //Update Location of user & change the zoom.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         centertoMidPoint()
@@ -107,28 +103,35 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         let dropPin = MKPointAnnotation()
         dropPin.coordinate = location
         dropPin.title = pinTitle
-        let anotation = dropPin as! MKAnnotation
-        
         mapView.addAnnotation(dropPin)
         user.pins[pinTitle] = dropPin
     }
     
     //Center between x points
     func centertoMidPoint() {
-        var sumLatitude = locationManager.location?.coordinate.latitude
-        var sumLongitude = locationManager.location?.coordinate.longitude
-        
-        for pin in user.pins.values {
-            sumLatitude! += pin.coordinate.latitude
-            sumLongitude! += pin.coordinate.longitude
+        if mapView.annotations.count == 0 {
+            return
+        }
+        var topLeftCoord: CLLocationCoordinate2D = CLLocationCoordinate2D()
+        topLeftCoord.latitude = -90
+        topLeftCoord.longitude = 180
+        var bottomRightCoord: CLLocationCoordinate2D = CLLocationCoordinate2D()
+        bottomRightCoord.latitude = 90
+        bottomRightCoord.longitude = -180
+        for annotation: MKAnnotation in mapView.annotations {
+            topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude)
+            topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude)
+            bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude)
+            bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, annotation.coordinate.latitude)
         }
         
-        let midLat = sumLatitude!/Double(user.pins.count + 1)
-        let midLon = sumLongitude!/Double(user.pins.count + 1)
-        
-        let midcoordinate = CLLocationCoordinate2D(latitude: midLat, longitude: midLon)
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 60000, 60000)
-        mapView.setRegion(coordinateRegion, animated: true)
+        var region: MKCoordinateRegion = MKCoordinateRegion()
+        region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5
+        region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5
+        region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.4
+        region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.4
+        region = mapView.regionThatFits(region)
+        mapView.setRegion(region, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -177,13 +180,14 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         }
     }
     
-    //Get Information for pins
+
+    
     func getData(){
         let todoEndpoint: String = "http://data.sparkfun.com/output/VGxEGjpqrxHaWvDLNLD6.json"
         Alamofire.request(todoEndpoint).responseJSON { response in
             //to get JSON return value
             if let result = response.result.value {
-                var balA = false, balB = false
+                var balA = false, balB = false, raA = false , raB = false
                 let JSON = result as! NSArray
                 
                 //For every object in the response
@@ -198,11 +202,19 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     //Get the first coordenate of every id.
                     if (newObject["id"] as! String == "1" && !balA){
                         balA = true
-                        self.dropPin(location: coor, pinTitle: "BalloonA")
+                        if user.pins["BalloonA"] == nil {
+                            self.dropPin(location: coor, pinTitle: "BalloonA")
+                        } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonA"]?.coordinate.longitude != coor.longitude{
+                            user.changepinLocation(pinTitle: "BalloonA", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
+                        }
                         print(object as! NSDictionary)
                     } else if (newObject["id"] as! String == "2" && !balB){
                         balB = true
-                        self.dropPin(location: coor, pinTitle: "BalloonB")
+                        if user.pins["BalloonB"] == nil {
+                            self.dropPin(location: coor, pinTitle: "BalloonB")
+                        } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonB"]?.coordinate.longitude != coor.longitude{
+                            user.changepinLocation(pinTitle: "BalloonB", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
+                        }
                         print(object as! NSDictionary)
                     }
                     
@@ -213,6 +225,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                 }
             }
             self.centertoMidPoint()
+            
         }
     }
 
