@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if user.id == "R"{ //Open in Ranger Map
+            print("Ranger")
+        } else if user.id == "H"{ //Open in HQ Map
+            print("HQ")
+        }
         return true
     }
 
@@ -42,11 +47,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        if url.host != nil{
-            print(url.absoluteString)
-            var urlString = url.absoluteString
-            var parameters = urlString.components(separatedBy: "//")
-            print(parameters[0] + parameters[1])
+        let urlString = url.absoluteString
+        var param = urlString.components(separatedBy: "//")
+        
+        if user.id == "3" || user.id == "4" { //If User that opened link is ranger
+            if param[1] == " 1" { //Balloon A
+                //Change Balloon A Location
+                //Open View controller 
+                let rootViewController = self.window!.rootViewController
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let setViewController = mainStoryboard.instantiateViewController(withIdentifier: "rangerMapViewController") as! rangerMapViewController
+                rootViewController?.navigationController?.popToViewController(setViewController, animated: false)
+                
+            } else if param[1] == "2"{ //Balloon B
+                //Change Balloon A Location
+            }
+        } else if user.id == "0" { //If User that opened link is in HQ
+            if param[1] == "1" { //Balloon A
+                //Change Balloon A Location
+            } else if param[1] == "2"{ //Balloon B
+                //Change Balloon A Location
+            } else if param[1] == "3"{ //Ranger A
+                //Change Ranger A
+            } else {  //Ranger B
+                //Change Ranger B
+            }
         }
         
         return true

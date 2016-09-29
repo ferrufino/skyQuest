@@ -22,11 +22,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-nV-Mwd">
                                 <state key="normal" title="Ranger"/>
                                 <connections>
+                                    <action selector="rangerMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i87-mu-plP"/>
                                     <segue destination="fxJ-wz-Rqm" kind="show" identifier="rangerMapView" id="oS8-ls-HTv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YY-QD-sIo">
                                 <state key="normal" title="HeadQuarters"/>
+                                <connections>
+                                    <action selector="HQMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BeK-Ev-6XI"/>
+                                    <segue destination="QgR-E2-qmH" kind="show" id="c8N-4Z-TKl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,7 +87,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wZ-pS-uoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1869.5999999999999" y="38.23088455772114"/>
+            <point key="canvasLocation" x="1844" y="-294"/>
+        </scene>
+        <!--Hq Map View Controller-->
+        <scene sceneID="Cfe-VQ-3xw">
+            <objects>
+                <viewController id="Zmt-Jb-ppB" customClass="hqMapViewController" customModule="skyQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AMh-D2-Je8"/>
+                        <viewControllerLayoutGuide type="bottom" id="DaX-mO-awd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JA1-wv-8et">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="f0E-LH-gUW"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Wl2-ZA-aqJ">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5K-09-vK3">
+                                        <state key="normal" title="Send location A"/>
+                                        <connections>
+                                            <action selector="sendLocationA:" destination="Zmt-Jb-ppB" eventType="touchUpInside" id="Isz-Ph-vdq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uga-iA-BeY">
+                                        <state key="normal" title="Send location B"/>
+                                        <connections>
+                                            <action selector="sendLocationB:" destination="Zmt-Jb-ppB" eventType="touchDown" id="xmR-mm-VdQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DaX-mO-awd" firstAttribute="top" secondItem="Wl2-ZA-aqJ" secondAttribute="bottom" constant="14" id="1Yf-eD-LYA"/>
+                            <constraint firstItem="f0E-LH-gUW" firstAttribute="leading" secondItem="JA1-wv-8et" secondAttribute="leading" id="HHN-1T-1FK"/>
+                            <constraint firstItem="f0E-LH-gUW" firstAttribute="top" secondItem="AMh-D2-Je8" secondAttribute="bottom" id="HOS-io-u29"/>
+                            <constraint firstAttribute="trailing" secondItem="f0E-LH-gUW" secondAttribute="trailing" id="fIF-IX-y1V"/>
+                            <constraint firstItem="Wl2-ZA-aqJ" firstAttribute="centerX" secondItem="f0E-LH-gUW" secondAttribute="centerX" id="nJP-jz-di6"/>
+                            <constraint firstItem="Wl2-ZA-aqJ" firstAttribute="top" secondItem="f0E-LH-gUW" secondAttribute="bottom" constant="14" id="yPI-XX-0ML"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="R27-d6-Q7U"/>
+                    <connections>
+                        <outlet property="mapView" destination="f0E-LH-gUW" id="azF-0g-NDH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sKT-kr-edW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1844" y="475"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JZO-xG-XWp">
@@ -100,7 +154,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMu-cO-76f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930.39999999999998" y="38.23088455772114"/>
+            <point key="canvasLocation" x="930" y="-294"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="46r-hL-IbU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QgR-E2-qmH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M4d-Uy-Z9Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zmt-Jb-ppB" kind="relationship" relationship="rootViewController" id="zG6-am-He2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sNM-gd-oju" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="475"/>
         </scene>
     </scenes>
 </document>
