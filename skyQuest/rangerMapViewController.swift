@@ -76,7 +76,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     //Update Location of user & change the zoom.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        centerMidPoint(c1: locationManager.location!.coordinate, c2: CLLocationCoordinate2D(latitude: 25.4064023, longitude: -100.1434737))
+        centertoMidPoint()
         print("Updated Ranger Location")
         postRangerLocation()
         print("Ranger Location Uploaded")
@@ -109,17 +109,18 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     //Center between x points
     func centertoMidPoint() {
-        var sumLatitude: CLLocationDegrees?
-        var sumLongitude: CLLocationDegrees?
+        var sumLatitude = locationManager.location?.coordinate.latitude
+        var sumLongitude = locationManager.location?.coordinate.longitude
         
         for pin in user.pins.values {
             sumLatitude! += pin.coordinate.latitude
             sumLongitude! += pin.coordinate.longitude
         }
         
-        let midLat = sumLatitude/user.pins.count
+        let midLat = sumLatitude!/Double(user.pins.count)
+        let midLon = sumLongitude!/Double(user.pins.count)
         
-        let midcoordinate = CLLocationCoordinate2D(latitude: midLatitude, longitude: midLongitude)
+        let midcoordinate = CLLocationCoordinate2D(latitude: midLat, longitude: midLon)
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(midcoordinate, 20000, 20000)
         mapView.setRegion(coordinateRegion, animated: true)
     }
