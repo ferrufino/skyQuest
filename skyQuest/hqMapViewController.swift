@@ -37,10 +37,6 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBAction func sendLocationB(_ sender: AnyObject) {
         sendLocationSMS(sender: "2", point: user.pins["BalloonB"]!)
     }
-    @IBAction func reloadMap(_ sender: AnyObject) {
-        getData()
-        centertoMidPoint()
-    }
     
     //MARK: Sending Message
     /*
@@ -52,7 +48,6 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let myUrl = NSURL(string: "SQ://\(point.coordinate.latitude)//\(point.coordinate.longitude)//\(sender)") as! URL
         messageVC.addAttachmentURL(myUrl, withAlternateFilename: "Hello")
         messageVC.body = "SQ://\(point.coordinate.latitude)//\(point.coordinate.longitude)//\(sender)"
-        messageVC.recipients = ["8187065537"]
         messageVC.messageComposeDelegate = self
         
         self.present(messageVC, animated: false, completion: nil)

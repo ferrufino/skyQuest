@@ -17,6 +17,10 @@ import Alamofire
 class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  MFMessageComposeViewControllerDelegate{
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var btnhide: UIButton!
+    
+    var enabled = false
+
     
     var locationManager = CLLocationManager()
     var myId = " 1"
@@ -43,6 +47,28 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         self.centertoMidPoint()
     }
     
+    @IBAction func showOtherBalloon(_ sender: AnyObject) {
+        if enabled {
+            enabled = false
+            if user.id == "3" {
+                if let annotation = user.pins["BalloonB"] {
+                    mapView.removeAnnotation(annotation)
+                    user.pins["BalloonB"] = nil
+                }
+            } else {
+                if let annotation = user.pins["BalloonA"] {
+                    mapView.removeAnnotation(annotation)
+                    user.pins["BalloonA"] = nil
+                }
+            }
+            btnhide.titleLabel?.text = "Show"
+        }else{
+            enabled = true
+            btnhide.titleLabel?.text = "Hide"
+        }
+        getData()
+    }
+    
     //MARK: Sending Message
     /*
      If sender is a Ranger, you use 3 or 4 as id. -> Reciver has to be HQ.
@@ -53,7 +79,6 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         let myUrl = NSURL(string: "SQ://\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)//\(user.id!)") as! URL
         messageVC.addAttachmentURL(myUrl, withAlternateFilename: "Hello")
         messageVC.body = "SQ://\(locationManager.location!.coordinate.latitude)//\(locationManager.location!.coordinate.longitude)//\(user.id!)"
-        messageVC.recipients = ["8186938092"]
         messageVC.messageComposeDelegate = self
         
         self.present(messageVC, animated: false, completion: nil)
@@ -208,7 +233,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     let coor = CLLocationCoordinate2D(latitude: Double(latString)!, longitude: Double(lonString)!)
                     
                     //Get the first coordenate of every id.
-                    if (newObject["id"] as! String == "1" && !balA && user.id == "3"){
+                    if (newObject["id"] as! String == "1" && !balA && (user.id == "3" || self.enabled)){
                         balA = true
                         if user.pins["BalloonA"] == nil {
                             self.dropPin(location: coor, pinTitle: "BalloonA", imgTitle: "balloon-a")
@@ -216,7 +241,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                             user.changepinLocation(pinTitle: "BalloonA", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
                         }
                         print(object as! NSDictionary)
-                    } else if (newObject["id"] as! String == "2" && !balB  && user.id == "4"){
+                    } else if (newObject["id"] as! String == "2" && !balB  && (user.id == "4" || self.enabled)){
                         balB = true
                         if user.pins["BalloonB"] == nil {
                             self.dropPin(location: coor, pinTitle: "BalloonB", imgTitle: "balloon-b")
