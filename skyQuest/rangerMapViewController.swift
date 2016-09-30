@@ -22,16 +22,14 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        let timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(postRangerLocation), userInfo: nil, repeats: true)
+        let timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(postRangerLocation), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
-        
         locationManager.startUpdatingLocation() //Continue updating map
-        
-        //getLocations()
+        getData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -209,16 +207,15 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                     let coor = CLLocationCoordinate2D(latitude: Double(latString)!, longitude: Double(lonString)!)
                     
                     //Get the first coordenate of every id.
-                    if (newObject["id"] as! String == "1" && !balA){
+                    if (newObject["id"] as! String == "1" && !balA && user.id == "3"){
                         balA = true
-
                         if user.pins["BalloonA"] == nil {
                             self.dropPin(location: coor, pinTitle: "BalloonA", imgTitle: "balloon-a")
                         } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonA"]?.coordinate.longitude != coor.longitude{
                             user.changepinLocation(pinTitle: "BalloonA", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
                         }
                         print(object as! NSDictionary)
-                    } else if (newObject["id"] as! String == "2" && !balB){
+                    } else if (newObject["id"] as! String == "2" && !balB  && user.id == "4"){
                         balB = true
                         if user.pins["BalloonB"] == nil {
                             self.dropPin(location: coor, pinTitle: "BalloonB", imgTitle: "balloon-b")
