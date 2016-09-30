@@ -19,15 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-nV-Mwd">
-                                <state key="normal" title="Rangers" backgroundImage="teamRanger">
-                                    <color key="titleColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="rangerMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i87-mu-plP"/>
-                                    <segue destination="iKu-XK-sFk" kind="show" id="lYi-HF-eIs"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YY-QD-sIo">
                                 <state key="normal" backgroundImage="hq">
                                     <color key="titleColor" red="0.9137254901960784" green="0.074509803921568626" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,24 +29,36 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-cascos-1" translatesAutoresizingMaskIntoConstraints="NO" id="aCU-6d-57P"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HeadQuarters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ds-04-Vto">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="HeadQuarters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ds-04-Vto">
+                                <frame key="frameInset" minX="133" minY="610" width="108" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-nV-Mwd">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="xfW-Im-Jdf"/>
+                                </constraints>
+                                <state key="normal" title="Rangers" backgroundImage="teamRanger">
+                                    <color key="titleColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="rangerMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i87-mu-plP"/>
+                                    <segue destination="iKu-XK-sFk" kind="show" id="lYi-HF-eIs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aCU-6d-57P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="42" id="0Sc-Ce-gIE"/>
-                            <constraint firstItem="1Ds-04-Vto" firstAttribute="top" secondItem="7g9-nV-Mwd" secondAttribute="bottom" constant="74" id="3LW-Ah-6df"/>
                             <constraint firstItem="1Ds-04-Vto" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="132" id="9Ce-TC-5i1"/>
-                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="101.5" id="A3J-7M-dvh"/>
-                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="top" secondItem="aCU-6d-57P" secondAttribute="bottom" constant="46" id="Heu-s7-tT3"/>
-                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LON-HY-YNz"/>
-                            <constraint firstItem="6YY-QD-sIo" firstAttribute="centerX" secondItem="7g9-nV-Mwd" secondAttribute="centerX" id="d0I-m2-ySQ"/>
-                            <constraint firstItem="aCU-6d-57P" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="48" id="gF8-8a-4dD"/>
-                            <constraint firstItem="aCU-6d-57P" firstAttribute="centerX" secondItem="7g9-nV-Mwd" secondAttribute="centerX" id="haZ-OB-mb5"/>
-                            <constraint firstItem="6YY-QD-sIo" firstAttribute="top" secondItem="7g9-nV-Mwd" secondAttribute="bottom" constant="13" id="nlK-ld-38f"/>
+                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerX" secondItem="6YY-QD-sIo" secondAttribute="centerX" id="NwW-r7-g0B"/>
+                            <constraint firstItem="6YY-QD-sIo" firstAttribute="top" secondItem="7g9-nV-Mwd" secondAttribute="bottom" constant="30" id="U2B-nv-2Id"/>
+                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="85" id="bhB-iB-5Iq"/>
+                            <constraint firstItem="aCU-6d-57P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="42" id="gXy-de-am7"/>
+                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="top" secondItem="aCU-6d-57P" secondAttribute="bottom" constant="90" id="jRE-0o-eOV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aCU-6d-57P" secondAttribute="trailing" constant="37" id="rzA-HL-m7O"/>
+                            <constraint firstAttribute="bottom" secondItem="7g9-nV-Mwd" secondAttribute="bottom" constant="146" id="uIr-YR-ELK"/>
+                            <constraint firstItem="aCU-6d-57P" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="48" id="vtE-6L-uId"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -98,7 +101,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vzZ-0O-4cK">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="2H2-yl-O1H"/>
                         <barButtonItem key="rightBarButtonItem" title="Center" id="iwp-jA-tZe">
                             <connections>
                                 <action selector="centerMap:" destination="ZD6-KF-Ku9" id="raM-QB-jbd"/>
@@ -196,9 +198,6 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUj-Ak-acW">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="190" id="pXD-Qr-G4y"/>
-                                </constraints>
                                 <state key="normal" image="worker-male-large">
                                     <color key="titleColor" red="0.62732725302051284" green="0.053734461335587166" blue="0.09488466746523519" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -207,15 +206,18 @@
                                     <segue destination="ZD6-KF-Ku9" kind="show" identifier="BalloonB" id="yTg-bC-LrN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Ranger Button A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDk-Nk-0UT">
-                                <frame key="frameInset" minX="122" minY="305" width="132" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranger Button A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDk-Nk-0UT">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="k0C-et-EJV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ranger Balloon B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uck-ir-8RE">
-                                <frame key="frameInset" minX="117" minY="528" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranger Balloon B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uck-ir-8RE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="136" id="VSr-T4-aMY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -223,14 +225,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="WUj-Ak-acW" secondAttribute="trailing" constant="85" id="9hy-W7-gVk"/>
-                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="top" secondItem="nfd-mV-0Og" secondAttribute="bottom" constant="62" id="DFJ-Vr-RkW"/>
-                            <constraint firstItem="WUj-Ak-acW" firstAttribute="top" secondItem="BDk-Nk-0UT" secondAttribute="bottom" constant="24" id="Dw4-qP-n8n"/>
-                            <constraint firstItem="2Ij-jn-cRh" firstAttribute="top" secondItem="WUj-Ak-acW" secondAttribute="bottom" constant="127" id="L72-Sm-WWB"/>
-                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="leading" secondItem="DZ5-ap-Yvk" secondAttribute="leadingMargin" constant="77" id="La2-2s-z8e"/>
-                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="leading" secondItem="WUj-Ak-acW" secondAttribute="leading" id="pol-aZ-rV5"/>
-                            <constraint firstItem="WUj-Ak-acW" firstAttribute="top" secondItem="yvd-Tn-ztS" secondAttribute="bottom" constant="27" id="scL-Bl-KZz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yvd-Tn-ztS" secondAttribute="trailing" constant="61" id="x4l-Cq-eIt"/>
+                            <constraint firstItem="Uck-ir-8RE" firstAttribute="leading" secondItem="DZ5-ap-Yvk" secondAttribute="leadingMargin" constant="97" id="9KS-Ax-nLY"/>
+                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="leading" secondItem="WUj-Ak-acW" secondAttribute="leading" id="C6K-dN-r7k"/>
+                            <constraint firstItem="2Ij-jn-cRh" firstAttribute="top" secondItem="WUj-Ak-acW" secondAttribute="bottom" constant="133" id="F24-si-1oW"/>
+                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="centerX" secondItem="DZ5-ap-Yvk" secondAttribute="centerX" id="GiE-sq-Kh5"/>
+                            <constraint firstItem="BDk-Nk-0UT" firstAttribute="top" secondItem="nfd-mV-0Og" secondAttribute="bottom" constant="237" id="Hdj-vM-brS"/>
+                            <constraint firstItem="WUj-Ak-acW" firstAttribute="top" secondItem="BDk-Nk-0UT" secondAttribute="bottom" constant="24" id="Mt1-FB-oan"/>
+                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="top" secondItem="nfd-mV-0Og" secondAttribute="bottom" constant="58" id="RAm-rh-l76"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WUj-Ak-acW" secondAttribute="trailing" constant="93" id="TfY-Wb-ZIN"/>
+                            <constraint firstItem="BDk-Nk-0UT" firstAttribute="trailing" secondItem="Uck-ir-8RE" secondAttribute="trailing" id="Y9Q-U6-Ttm"/>
+                            <constraint firstItem="WUj-Ak-acW" firstAttribute="top" secondItem="yvd-Tn-ztS" secondAttribute="bottom" constant="33" id="ZHd-hS-MtK"/>
+                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="leading" secondItem="DZ5-ap-Yvk" secondAttribute="leadingMargin" constant="73" id="bfq-FV-PJ7"/>
+                            <constraint firstItem="2Ij-jn-cRh" firstAttribute="top" secondItem="Uck-ir-8RE" secondAttribute="bottom" constant="122" id="wXo-4b-OQp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JKT-GR-oOB"/>

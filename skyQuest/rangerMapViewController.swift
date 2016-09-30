@@ -22,14 +22,17 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        let timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(postRangerLocation), userInfo: nil, repeats: true)
+        
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(postRangerLocation), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(getData), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
         locationManager.startUpdatingLocation() //Continue updating map
-        getData()
+
+       // getData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,7 +41,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     @IBAction func centerMap(_ sender: AnyObject) {
-        centerMapOnLocation(location: locationManager.location!)
+        self.centertoMidPoint()
     }
     
     //MARK: Sending Message
@@ -95,7 +98,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     //Center the map on Ranger location
     func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 20000, 20000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
@@ -194,7 +197,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         Alamofire.request(todoEndpoint).responseJSON { response in
             //to get JSON return value
             if let result = response.result.value {
-                var balA = false, balB = false, raA = false , raB = false
+                var balA = false, balB = false
                 let JSON = result as! NSArray
                 
                 //For every object in the response
@@ -219,75 +222,17 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                         balB = true
                         if user.pins["BalloonB"] == nil {
                             self.dropPin(location: coor, pinTitle: "BalloonB", imgTitle: "balloon-b")
-                        } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonB"]?.coordinate.longitude != coor.longitude{
+                        } else if user.pins["BalloonB"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonB"]?.coordinate.longitude != coor.longitude{
                             user.changepinLocation(pinTitle: "BalloonB", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
                         }
                         print(object as! NSDictionary)
                     }
-                    
                     //If all pins are drop stop searching
                     if (balA && balB){
                         break
                     }
                 }
             }
-            self.centertoMidPoint()
         }
     }
-
-    /*
-    func getData(){
-        let todoEndpoint: String = "http://data.sparkfun.com/output/VGxEGjpqrxHaWvDLNLD6.json"
-        Alamofire.request(todoEndpoint).responseJSON { response in
-            //to get JSON return value
-            if let result = response.result.value {
-                var balA = false, balB = false, raA = false , raB = false
-                let JSON = result as! NSArray
-                
-                //For every object in the response
-                for object in JSON {
-                    let newObject = object as! NSDictionary //Cast AnyObject to NSDictionary
-                    
-                    //Create Coordenates with data
-                    let latString = (newObject["lat"] as! String).components(separatedBy: " ")
-                    let lonString = (newObject["lon"] as! String).components(separatedBy: " ")
-                    let coor = CLLocationCoordinate2D(latitude: Double(latString[0])!, longitude: Double(lonString[0])!)
-                    
-                    //Get the first coordenate of every id.
-                    if (newObject["id"] as! String == "1" && !balA){
-                        balA = true
-                        if user.pins["BalloonA"] == nil {
-                            
-                            self.dropPin(location: coor, pinTitle: "BalloonA")
-                            
-                        } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonA"]?.coordinate.longitude != coor.longitude{
-                            
-                            user.changepinLocation(pinTitle: "BalloonA", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
-                            
-                        }
-                        print(object as! NSDictionary)
-                    } else if (newObject["id"] as! String == "2" && !balB){
-                        balB = true
-                        if user.pins["BalloonB"] == nil {
-                            
-                            self.dropPin(location: coor, pinTitle: "BalloonB")
-                            
-                        } else if user.pins["BalloonA"]?.coordinate.latitude != coor.latitude ||  user.pins["BalloonB"]?.coordinate.longitude != coor.longitude{
-                            
-                            user.changepinLocation(pinTitle: "BalloonB", lat: "\(coor.latitude)", lon: "\(coor.longitude)")
-                        }
-                        print(object as! NSDictionary)
-                    }
-                    
-                    //If all pins are drop stop searching
-                    if (balA && balB){
-                        break
-                    }
-                }
-            }
-            self.centertoMidPoint()
-            
-        }
-    }
-*/
 }
