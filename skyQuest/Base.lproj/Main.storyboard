@@ -19,32 +19,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-nV-Mwd">
-                                <state key="normal" title="Ranger"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g9-nV-Mwd">
+                                <state key="normal" title="Rangers" backgroundImage="teamRanger">
+                                    <color key="titleColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="rangerMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i87-mu-plP"/>
                                     <segue destination="iKu-XK-sFk" kind="show" id="lYi-HF-eIs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YY-QD-sIo">
-                                <state key="normal" title="HeadQuarters"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YY-QD-sIo">
+                                <frame key="frameInset" minX="145" minY="506" width="84" height="71"/>
+                                <state key="normal" backgroundImage="hq">
+                                    <color key="titleColor" red="0.9137254901960784" green="0.074509803921568626" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="HQMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BeK-Ev-6XI"/>
                                     <segue destination="QgR-E2-qmH" kind="show" id="c8N-4Z-TKl"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-cascos-1" translatesAutoresizingMaskIntoConstraints="NO" id="aCU-6d-57P"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HeadQuarters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ds-04-Vto">
+                                <frame key="frameInset" minX="132" minY="567" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="A3J-7M-dvh"/>
+                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="101.5" id="A3J-7M-dvh"/>
+                            <constraint firstItem="aCU-6d-57P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="42" id="AJn-2h-NMa"/>
+                            <constraint firstItem="aCU-6d-57P" firstAttribute="centerX" secondItem="7g9-nV-Mwd" secondAttribute="centerX" id="EdZ-Bk-8XW"/>
                             <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LON-HY-YNz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6YY-QD-sIo" secondAttribute="bottom" constant="206" id="RSa-32-2ne"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6YY-QD-sIo" secondAttribute="bottom" constant="105" id="RSa-32-2ne"/>
+                            <constraint firstItem="aCU-6d-57P" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="48" id="gTi-m1-KEw"/>
+                            <constraint firstItem="7g9-nV-Mwd" firstAttribute="top" secondItem="aCU-6d-57P" secondAttribute="bottom" constant="77" id="sM9-5k-Bp4"/>
                             <constraint firstItem="7g9-nV-Mwd" firstAttribute="centerX" secondItem="6YY-QD-sIo" secondAttribute="centerX" id="wMZ-lr-7zh"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
         <!--Ranger Map View Controller-->
         <scene sceneID="Jte-hQ-x1t">
@@ -59,8 +77,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NBj-aB-lLb"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="222-zu-J1V">
-                                <state key="normal" title="Send My Location"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="222-zu-J1V">
+                                <frame key="frameInset" minX="99" minY="623" width="197" height="30"/>
+                                <state key="normal" title="Send My Location">
+                                    <color key="titleColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="SendLocationSMS:" destination="ZD6-KF-Ku9" eventType="touchUpInside" id="68C-ce-zcQ"/>
                                 </connections>
@@ -109,13 +130,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Wl2-ZA-aqJ">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5K-09-vK3">
-                                        <state key="normal" title="Send location A"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Send location A">
+                                            <color key="titleColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="sendLocationA:" destination="Zmt-Jb-ppB" eventType="touchUpInside" id="Isz-Ph-vdq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uga-iA-BeY">
-                                        <state key="normal" title="Send location B"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Send location B">
+                                            <color key="titleColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="sendLocationB:" destination="Zmt-Jb-ppB" eventType="touchDown" id="xmR-mm-VdQ"/>
                                         </connections>
@@ -160,28 +187,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvd-Tn-ztS">
-                                <state key="normal" title="Ranger Balloon A"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvd-Tn-ztS">
+                                <frame key="frameInset" minX="93" minY="126" width="205" height="197"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="worker-female-large">
+                                    <color key="titleColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="rangerBalloonA:" destination="QRj-Zk-cqc" eventType="touchDown" id="dpa-SB-AIx"/>
                                     <segue destination="ZD6-KF-Ku9" kind="show" identifier="balloonA" id="z35-st-rV0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUj-Ak-acW">
-                                <state key="normal" title="Ranger Balloon B"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUj-Ak-acW">
+                                <frame key="frameInset" minX="93" minY="350" width="181" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="worker-male-large">
+                                    <color key="titleColor" red="0.62732725302051284" green="0.053734461335587166" blue="0.09488466746523519" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="rangerBalloonB:" destination="QRj-Zk-cqc" eventType="touchDown" id="o5T-kO-3lm"/>
                                     <segue destination="ZD6-KF-Ku9" kind="show" identifier="BalloonB" id="yTg-bC-LrN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ranger Button A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDk-Nk-0UT">
+                                <frame key="frameInset" minX="122" minY="305" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ranger Balloon B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uck-ir-8RE">
+                                <frame key="frameInset" minX="117" minY="528" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.62732725300000003" green="0.053734461339999998" blue="0.094884667470000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="trailing" secondItem="WUj-Ak-acW" secondAttribute="trailing" id="NAb-If-Zp2"/>
-                            <constraint firstItem="WUj-Ak-acW" firstAttribute="top" secondItem="yvd-Tn-ztS" secondAttribute="bottom" constant="79" id="twr-Ep-S1v"/>
-                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="top" secondItem="nfd-mV-0Og" secondAttribute="bottom" constant="200" id="uwh-ht-9S9"/>
-                            <constraint firstItem="yvd-Tn-ztS" firstAttribute="centerX" secondItem="DZ5-ap-Yvk" secondAttribute="centerX" id="yXI-4p-isV"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JKT-GR-oOB"/>
                 </viewController>
@@ -226,6 +269,13 @@
             <point key="canvasLocation" x="808.79999999999995" y="-287.40629685157421"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hq" width="84" height="71"/>
+        <image name="logo-cascos-1" width="354" height="354"/>
+        <image name="teamRanger" width="175" height="115"/>
+        <image name="worker-female-large" width="319" height="319"/>
+        <image name="worker-male-large" width="319" height="319"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yTg-bC-LrN"/>
     </inferredMetricsTieBreakers>
