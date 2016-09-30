@@ -97,7 +97,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vzZ-0O-4cK">
-                        <barButtonItem key="rightBarButtonItem" title="Center" id="iwp-jA-tZe">
+                        <barButtonItem key="rightBarButtonItem" image="center" id="iwp-jA-tZe">
                             <connections>
                                 <action selector="centerMap:" destination="ZD6-KF-Ku9" id="raM-QB-jbd"/>
                             </connections>
@@ -287,6 +287,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="center" width="50" height="50"/>
         <image name="hq" width="84" height="71"/>
         <image name="logo-cascos-1" width="354" height="354"/>
         <image name="teamRanger" width="175" height="115"/>
