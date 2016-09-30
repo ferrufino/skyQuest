@@ -21,7 +21,7 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         getData()
         mapView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
-        let timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(getData), userInfo: nil, repeats: true)
+        let timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(getData), userInfo: nil, repeats: true)
         print(timer)
     }
     
@@ -52,7 +52,7 @@ class hqMapViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let myUrl = NSURL(string: "SQ://\(point.coordinate.latitude)//\(point.coordinate.longitude)//\(sender)") as! URL
         messageVC.addAttachmentURL(myUrl, withAlternateFilename: "Hello")
         messageVC.body = "SQ://\(point.coordinate.latitude)//\(point.coordinate.longitude)//\(sender)"
-        messageVC.recipients = ["8186938092"]
+        messageVC.recipients = ["8187065537"]
         messageVC.messageComposeDelegate = self
         
         self.present(messageVC, animated: false, completion: nil)

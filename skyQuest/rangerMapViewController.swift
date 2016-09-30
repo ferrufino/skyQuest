@@ -23,17 +23,15 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(postRangerLocation), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(getData), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(postRangerLocation), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(getData), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        super.viewDidLoad()
         checkLocationAuthorizationStatus()
         locationManager.startUpdatingLocation() //Continue updating map
-        self.viewDidLoad()
-       // getData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -159,7 +157,6 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         } else {
             annotationView!.image = UIImage(named: "balloon-b")
         }
-        
         
         return annotationView
     }

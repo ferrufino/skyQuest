@@ -96,13 +96,7 @@
                             <constraint firstItem="222-zu-J1V" firstAttribute="leading" secondItem="YVY-O5-K1b" secondAttribute="leadingMargin" constant="73" id="etr-O0-qzl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vzZ-0O-4cK">
-                        <barButtonItem key="rightBarButtonItem" image="center" id="iwp-jA-tZe">
-                            <connections>
-                                <action selector="centerMap:" destination="ZD6-KF-Ku9" id="raM-QB-jbd"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="vzZ-0O-4cK"/>
                     <connections>
                         <outlet property="mapView" destination="NBj-aB-lLb" id="8yK-mr-dyO"/>
                     </connections>
@@ -287,7 +281,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="center" width="50" height="50"/>
         <image name="hq" width="84" height="71"/>
         <image name="logo-cascos-1" width="354" height="354"/>
         <image name="teamRanger" width="175" height="115"/>
