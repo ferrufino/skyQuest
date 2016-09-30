@@ -22,7 +22,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        
+        let timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(postRangerLocation), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
