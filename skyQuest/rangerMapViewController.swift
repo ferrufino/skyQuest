@@ -12,13 +12,14 @@ import MapKit
 import MessageUI
 import Alamofire
 
-class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  MFMessageComposeViewControllerDelegate {
+
+
+class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,  MFMessageComposeViewControllerDelegate{
     
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager = CLLocationManager()
     var myId = " 1"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
@@ -31,7 +32,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
         locationManager.startUpdatingLocation() //Continue updating map
-
+        self.viewDidLoad()
        // getData()
     }
     
