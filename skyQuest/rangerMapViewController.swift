@@ -22,7 +22,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
-        let timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(postRangerLocation), userInfo: nil, repeats: true)
+        let timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(postRangerLocation), userInfo: nil, repeats: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,7 +31,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         
         locationManager.startUpdatingLocation() //Continue updating map
         
-        //getLocations()
+        getData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,7 +97,7 @@ class rangerMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     //Center the map on Ranger location
     func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 20000, 20000)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 10000, 10000)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
